@@ -11,6 +11,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.e("log", "Happy birthday HM Tamim");
+        try {
+            int i = 1/0;
+        } catch (Exception e) {
+            Log.e("log", "Happy birthday HM Tamim");
+        }
     }
 }
