@@ -1,0 +1,2 @@
+rootProject.name = "Coding Challenge 2.1"
+include ':app'
