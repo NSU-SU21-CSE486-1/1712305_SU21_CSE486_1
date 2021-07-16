@@ -22,4 +22,8 @@
     <!-- Text for the exception message in FragmentCommunicate. -->
     <string name="exception_message">must implement OnFragmentInteractionListener</string>
 
+    <string name="title_song_detail">Song Detail</string>
+    <string name="article_title">Beatles Anthology Vol. 1</string>
+    <string name="article_subtitle">Behind That Locked Door: Beatles Rarities!</string>
+
 </resources>
