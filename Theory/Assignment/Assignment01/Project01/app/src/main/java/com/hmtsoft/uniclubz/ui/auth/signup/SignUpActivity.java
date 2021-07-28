@@ -23,6 +23,9 @@ public class SignUpActivity extends AppCompatActivity {
             String email = binding.etEmail.getText().toString();
             Intent intent = new Intent(this, EditProfileActivity.class);
             intent.putExtra("email", email);
+            startActivity(intent);
         });
+
+        binding.toolbar.setNavigationOnClickListener(v -> onBackPressed());
     }
 }

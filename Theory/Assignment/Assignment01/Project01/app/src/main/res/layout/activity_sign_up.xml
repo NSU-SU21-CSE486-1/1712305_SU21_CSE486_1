@@ -10,6 +10,7 @@
         tools:context=".ui.auth.editProfile.EditProfileActivity">
 
         <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             app:navigationIcon="@drawable/ic_left_arrow"
@@ -59,6 +60,7 @@
                     android:drawableLeft="@drawable/ic_lock"
                     android:drawablePadding="10dp"
                     android:hint="Enter you password"
+                    android:inputType="textPassword"
                     android:paddingHorizontal="16dp"
                     android:textSize="16sp" />
 
@@ -77,6 +79,7 @@
                     android:drawableLeft="@drawable/ic_lock"
                     android:drawablePadding="10dp"
                     android:hint="Enter you password"
+                    android:inputType="textPassword"
                     android:paddingHorizontal="16dp"
                     android:textSize="16sp" />
 

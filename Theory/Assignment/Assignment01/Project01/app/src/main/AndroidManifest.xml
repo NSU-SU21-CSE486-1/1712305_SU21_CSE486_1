@@ -9,17 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UniClubz">
-
+        <activity android:name=".ui.auth.myProfile.ProfileActivity"></activity>
         <activity android:name=".ui.auth.signup.SignUpActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".ui.auth.editProfile.EditProfileActivity">
-
-        </activity>
+        <activity android:name=".ui.auth.editProfile.EditProfileActivity"></activity>
     </application>
 
 </manifest>

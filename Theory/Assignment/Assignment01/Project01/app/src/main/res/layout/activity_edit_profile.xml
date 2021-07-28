@@ -10,6 +10,7 @@
         tools:context=".ui.auth.editProfile.EditProfileActivity">
 
         <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             app:navigationIcon="@drawable/ic_left_arrow"
@@ -131,24 +132,6 @@
                     android:hint="Enter your phone number"
                     android:paddingHorizontal="16dp"
                     android:textSize="16sp" />
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:text="Email Address" />
-
-                <EditText
-                    android:id="@+id/etEmailAddress"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@drawable/input_bg"
-                    android:hint="Enter your email address"
-                    android:paddingHorizontal="16dp"
-                    android:textSize="16sp" />
-
 
                 <TextView
                     android:layout_width="match_parent"
