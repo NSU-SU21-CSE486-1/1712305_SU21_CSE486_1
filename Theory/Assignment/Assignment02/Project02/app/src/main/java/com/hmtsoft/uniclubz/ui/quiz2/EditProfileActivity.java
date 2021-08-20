@@ -91,6 +91,8 @@ public class EditProfileActivity extends BaseActivity<ActivityEditProfileBinding
 
             Intent intent = new Intent(this, MembersActivity.class);
             intent.putExtra("model", viewModel.getUserDetailsModel());
+
+            viewModel.setUserDetailsModel(new UserDetailsModel());
             startActivity(intent);
         });
 
