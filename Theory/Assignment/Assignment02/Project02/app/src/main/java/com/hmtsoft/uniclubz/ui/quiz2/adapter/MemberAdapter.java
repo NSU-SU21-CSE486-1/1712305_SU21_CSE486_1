@@ -1,6 +1,7 @@
 package com.hmtsoft.uniclubz.ui.quiz2.adapter;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.databinding.DataBindingUtil;
@@ -17,9 +18,11 @@ import java.util.List;
 public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder> {
 
     private List<UserDetailsModel> itemList;
+    private ClickListener clickListener;
 
-    public MemberAdapter(List<UserDetailsModel> dataModelList) {
+    public MemberAdapter(List<UserDetailsModel> dataModelList, ClickListener clickListener) {
         this.itemList = dataModelList;
+        this.clickListener = clickListener;
     }
 
     @Override
@@ -37,6 +40,7 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
         UserDetailsModel model = itemList.get(position);
         holder.binding.title.setText(model.getFullName());
         holder.binding.subTitle.setText(model.getNid());
+        holder.binding.getRoot().setOnClickListener(v -> clickListener.onClick(model));
     }
 
 
@@ -57,4 +61,11 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.ViewHolder
     public void setItemList(List<UserDetailsModel> itemList) {
         this.itemList = itemList;
     }
+
+
+    public interface ClickListener {
+        void onClick(UserDetailsModel model);
+
+    }
+
 }

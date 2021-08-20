@@ -71,6 +71,17 @@ public class EditProfileActivity extends BaseActivity<ActivityEditProfileBinding
 
     }
 
+    private void updateTabs() {
+
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
     @Override
     protected void clickListeners() {
 

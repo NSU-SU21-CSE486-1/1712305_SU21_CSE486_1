@@ -37,9 +37,8 @@
         <item name="android:windowIsFloating">false</item>
         <item name="android:windowFullscreen">false</item>
         <item name="bottomSheetStyle">@style/TransparentBottomSheet</item>
-        <item name="android:windowSoftInputMode">adjustResize</item>
         <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:statusBarColor">#00000000</item>
+        <item name="android:background">#00000000</item>
         <item name="android:windowTranslucentStatus">false</item>
     </style>
 

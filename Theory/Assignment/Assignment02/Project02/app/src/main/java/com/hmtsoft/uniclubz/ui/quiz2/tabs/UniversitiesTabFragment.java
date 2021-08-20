@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.hmtsoft.uniclubz.R;
 import com.hmtsoft.uniclubz.databinding.FragmentTabUniversitiesBinding;
+import com.hmtsoft.uniclubz.model.UserDetailsModel;
 import com.hmtsoft.uniclubz.ui.base.BaseFragment;
 import com.hmtsoft.uniclubz.ui.quiz2.EditProfileViewModel;
 import com.hmtsoft.uniclubz.ui.quiz2.adapter.PhoneNumberAdapter;
@@ -38,7 +39,9 @@ public class UniversitiesTabFragment extends BaseFragment<FragmentTabUniversitie
         sharedViewModel.getUserDetailsLiveData().observe(getViewLifecycleOwner(), model -> {
             if (model == null || model.getUniversities() == null || model.getUniversities().size() == 0) {
                 binding.empty.setVisibility(View.VISIBLE);
+                binding.recyclerView.setVisibility(View.GONE);
             } else {
+                binding.recyclerView.setVisibility(View.VISIBLE);
                 binding.empty.setVisibility(View.GONE);
                 UniversityAdapter adapter = new UniversityAdapter(model.getUniversities());
                 binding.recyclerView.setAdapter(adapter);
@@ -53,4 +56,5 @@ public class UniversitiesTabFragment extends BaseFragment<FragmentTabUniversitie
             bottomSheet.show(getParentFragmentManager(), "Edit University");
         });
     }
+
 }

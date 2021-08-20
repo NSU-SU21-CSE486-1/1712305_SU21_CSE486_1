@@ -40,13 +40,28 @@ public class PhoneNumbersTabFragment extends BaseFragment<FragmentTabPhoneNumber
         sharedViewModel.getUserDetailsLiveData().observe(getViewLifecycleOwner(), model -> {
             if (model == null || model.getPhoneNumbers() == null || model.getPhoneNumbers().size() == 0) {
                 binding.empty.setVisibility(View.VISIBLE);
+                binding.recyclerView.setVisibility(View.GONE);
             } else {
                 binding.empty.setVisibility(View.GONE);
+                binding.recyclerView.setVisibility(View.VISIBLE);
                 PhoneNumberAdapter adapter = new PhoneNumberAdapter(model.getPhoneNumbers());
                 binding.recyclerView.setAdapter(adapter);
             }
         });
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        UserDetailsModel model = sharedViewModel.getUserDetailsModel();
+        if (model == null || model.getPhoneNumbers() == null || model.getPhoneNumbers().size() == 0) {
+            binding.empty.setVisibility(View.VISIBLE);
+        } else {
+            binding.empty.setVisibility(View.GONE);
+            PhoneNumberAdapter adapter = new PhoneNumberAdapter(model.getPhoneNumbers());
+            binding.recyclerView.setAdapter(adapter);
+        }
     }
 
     @Override
