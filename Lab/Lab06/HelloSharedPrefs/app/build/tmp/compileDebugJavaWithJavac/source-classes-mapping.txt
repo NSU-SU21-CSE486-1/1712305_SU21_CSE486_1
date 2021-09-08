@@ -1,0 +1,8 @@
+com/example/android/hellosharedprefs/BuildConfig.java
+ com.example.android.hellosharedprefs.BuildConfig
+com/example/android/hellosharedprefs/Constants.java
+ com.example.android.hellosharedprefs.Constants
+com/example/android/hellosharedprefs/MainActivity.java
+ com.example.android.hellosharedprefs.MainActivity
+com/example/android/hellosharedprefs/SettingsActivity.java
+ com.example.android.hellosharedprefs.SettingsActivity
