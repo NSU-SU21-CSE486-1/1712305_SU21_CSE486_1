@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">UniClubz</string>
+
+    <string-array name="universities">
+        <item>North South University</item>
+        <item>BRAC University</item>
+        <item>Independent University</item>
+        <item>American Internation University</item>
+    </string-array>
+
+    <string-array name="phone_number_tags">
+        <item>Home</item>
+        <item>Office</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="study_level">
+        <item>Undergraduate</item>
+        <item>MS</item>
+        <item>PhD</item>
+        <item>Post-Doc</item>
+    </string-array>
+
+    <string-array name="department">
+        <item>School of Engineering &amp; Physical Sciences</item>
+        <item>School of Health and Life Sciences</item>
+        <item>School of Business &amp; Economics</item>
+        <item>School of Humanities &amp; Social Sciences</item>
+    </string-array>
+
+    <string-array name="blood_group">
+        <item>A+</item>
+        <item>A-</item>
+        <item>AB+</item>
+        <item>AB-</item>
+        <item>B+</item>
+        <item>B-</item>
+        <item>O+</item>
+        <item>O-</item>
+    </string-array>
+
+</resources>
