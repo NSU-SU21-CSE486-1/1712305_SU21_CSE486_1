@@ -23,7 +23,7 @@
 
 
 <p>
-   In this assginment 03, we were instructed to desgin and implement tab based edit prfoile flow of assignment to and save the data to a room database.
+   In this assignment 03, we were instructed to design and implement tab based edit profile flow of assignment to and save the data to a room database.
 <p></p>
 <p>There are 2 new activities.</p>
 <ul>
@@ -48,17 +48,17 @@
 
 <h2>Implementations</h2>
 
-<p>To make the codebase clean and easily managable, MVVM design, singleton, repository pattern were followed. Besides that, BaseFragment, BaseActivity, BaseBottomSheetFragment were written to reduce code boilerplates, and automate databinding, viewmodel. </p>
+<p>To make the codebase clean and easily manageable, MVVM design, singleton, repository pattern were followed. Besides that, BaseFragment, BaseActivity, BaseBottomSheetFragment were written to reduce code boilerplate, and automate data binding, viewmodel. </p>
 
 <p>The tab based UI was implemented via ViewPager2 and FragmentStateAdapter. The fragments were added in the ViewPager adapter. TabLayoutMediator was used to connect TabLayout and ViewPager.</p>
 
-<p>Sperate bottom sheets were designed and implemented to insert or edit personal information, universities and phone numbers. To communicate BottomSheet to Fragment, a shared activity instance ViewModel and MutableLiveData were used. When data is inserted from bottom sheet, that common LiveData was tiggered which was observed in fragment to update user data. Then that data were used populate the RecyclerView of University List, Phone Number List.</p>
+<p>Separate bottom sheets were designed and implemented to insert or edit personal information, universities and phone numbers. To communicate BottomSheet to Fragment, a shared activity instance ViewModel and MutableLiveData were used. When data is inserted from bottom sheet, that common LiveData was triggered which was observed in fragment to update user data. Then that data were used populate the RecyclerView of University List, Phone Number List.</p>
 
 <p>After entering all the data with step by step validation with toasts message, user can click on save button in toolbar. Which will open MembersActivity with the user details serializable model intent. On the MembersActivity, that serializable model was stored.</p>
 
-<p>To save the data in phone, instead of SharedPreference, Room Database was was used. UserDetailsModel was renamed to UserDetailsEntity, and all the required anotation was added. NID column was set as the primary key. But the challenge was, Room database doesn't allow nested object to be inserted as the entity had nested userversity, phone number list objects. To solve that issue, GSON Room TypeConverter were used to convert the list to a JSON structured string and then inserted to the column as string. When the list was needed, it was simply parsed via GSON to UserDetailsModel object again, Room does that automatically. </p>
+<p>To save the data in phone, instead of SharedPreferences, Room Database was was used. UserDetailsModel was renamed to UserDetailsEntity, and all the required annotation was added. NID column was set as the primary key. But the challenge was, Room database doesn't allow nested object to be inserted as the entity had nested userversity, phone number list objects. To solve that issue, GSON Room TypeConverter were used to convert the list to a JSON structured string and then inserted to the column as string. When the list was needed, it was simply parsed via GSON to UserDetailsModel object again, Room does that automatically. </p>
 
-<p>A callback interface were overriden to show success or failed message while perfomring an insert or delete query. SingleLiveEvent was created to pass message from background thread to main thread.</p>
+<p>A callback interface were overriden to show success or failed message while performing an insert or delete query. SingleLiveEvent was created to pass message from background thread to main thread.</p>
 
 <p></p>
 <h2>Screenshots</h2>
