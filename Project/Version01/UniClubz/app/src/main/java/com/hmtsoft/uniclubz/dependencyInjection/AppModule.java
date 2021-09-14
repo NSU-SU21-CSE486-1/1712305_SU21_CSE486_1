@@ -1,9 +1,8 @@
 package com.hmtsoft.uniclubz.dependencyInjection;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
-import javax.annotation.Nullable;
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -20,6 +19,13 @@ public class AppModule {
     public FirebaseAuth provideFirebaseAuth() {
         return FirebaseAuth.getInstance();
     }
+
+    @Singleton
+    @Provides
+    public FirebaseDatabase provideFirebaseDatabase() {
+        return FirebaseDatabase.getInstance();
+    }
+
 
 //    @Singleton
 //    @Provides

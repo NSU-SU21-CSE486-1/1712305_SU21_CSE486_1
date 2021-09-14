@@ -1,4 +1,4 @@
-package com.hmtsoft.uniclubz.ui.assignment03.tabs;
+package com.hmtsoft.uniclubz.ui.auth.editProfile.tabs;
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,9 +9,9 @@ import androidx.lifecycle.ViewModelProvider;
 import com.hmtsoft.uniclubz.R;
 import com.hmtsoft.uniclubz.databinding.FragmentTabUniversitiesBinding;
 import com.hmtsoft.uniclubz.ui.base.BaseFragment;
-import com.hmtsoft.uniclubz.ui.assignment03.EditProfileViewModel;
-import com.hmtsoft.uniclubz.ui.assignment03.adapter.UniversityAdapter;
-import com.hmtsoft.uniclubz.ui.assignment03.modal.EditUniversityBottomSheet;
+import com.hmtsoft.uniclubz.ui.auth.editProfile.EditProfileViewModel;
+import com.hmtsoft.uniclubz.ui.auth.editProfile.adapter.UniversityAdapter;
+import com.hmtsoft.uniclubz.ui.auth.editProfile.modal.EditUniversityBottomSheet;
 
 public class UniversitiesTabFragment extends BaseFragment<FragmentTabUniversitiesBinding, EditProfileViewModel> {
 

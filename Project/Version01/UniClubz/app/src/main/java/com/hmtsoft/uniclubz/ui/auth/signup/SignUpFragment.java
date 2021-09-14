@@ -72,7 +72,7 @@ public class SignUpFragment extends BaseFragment<FragmentSignUpBinding, SignUpVi
                             if (user != null) {
                                 PreferenceRepository.saveEmail(user.getEmail());
                                 PreferenceRepository.saveUid(user.getUid());
-                                navController.navigate(R.id.homeFragment);
+                                navController.navigate(R.id.editProfileFragment);
                             }
                         } else {
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());

@@ -1,11 +1,11 @@
-package com.hmtsoft.uniclubz.ui.assignment03.memberList;
+package com.hmtsoft.uniclubz.ui.auth.editProfile.memberList;
 
 import android.view.View;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.hmtsoft.uniclubz.R;
 import com.hmtsoft.uniclubz.databinding.ActivityMembersBinding;
-import com.hmtsoft.uniclubz.ui.assignment03.adapter.MemberAdapter;
+import com.hmtsoft.uniclubz.ui.auth.editProfile.adapter.MemberAdapter;
 import com.hmtsoft.uniclubz.ui.base.BaseActivity;
 import com.hmtsoft.uniclubz.utils.ToastUtils;
 

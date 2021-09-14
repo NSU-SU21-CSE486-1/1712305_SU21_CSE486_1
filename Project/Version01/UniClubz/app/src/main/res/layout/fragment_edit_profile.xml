@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.hmtsoft.uniclubz.ui.assignment03.EditProfileViewModel" />
+            type="com.hmtsoft.uniclubz.ui.auth.editProfile.EditProfileViewModel" />
 
     </data>
 
@@ -40,13 +40,6 @@
                 android:textSize="14sp" />
 
 
-            <ImageView
-                android:id="@+id/userList"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginEnd="10dp"
-                android:src="@drawable/ic_baseline_format_list_bulleted_24" />
 
         </Toolbar>
 

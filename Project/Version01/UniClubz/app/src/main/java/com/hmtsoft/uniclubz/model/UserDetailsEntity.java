@@ -31,11 +31,21 @@ public class UserDetailsEntity implements Serializable {
     @ColumnInfo
     private List<PhoneNumberModel> phoneNumbers;
 
+    private String uid;
+
     public void setPersonalInformation(String fullName, String dateOfBirth, String bloodGroup, String nid) {
         this.fullName = fullName;
         this.dateOfBirth = dateOfBirth;
         this.bloodGroup = bloodGroup;
         this.nid = nid;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public String getFullName() {

@@ -1,4 +1,4 @@
-package com.hmtsoft.uniclubz.ui.assignment03.adapter;
+package com.hmtsoft.uniclubz.ui.auth.editProfile.adapter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;

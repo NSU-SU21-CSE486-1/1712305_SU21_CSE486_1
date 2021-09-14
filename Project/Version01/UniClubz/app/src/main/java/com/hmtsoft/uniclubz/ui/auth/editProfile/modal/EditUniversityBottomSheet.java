@@ -1,4 +1,4 @@
-package com.hmtsoft.uniclubz.ui.assignment03.modal;
+package com.hmtsoft.uniclubz.ui.auth.editProfile.modal;
 
 import android.os.Bundle;
 
@@ -10,7 +10,7 @@ import com.hmtsoft.uniclubz.databinding.BottomSheetEditUniversityBinding;
 import com.hmtsoft.uniclubz.model.UniversityModel;
 import com.hmtsoft.uniclubz.model.UserDetailsEntity;
 import com.hmtsoft.uniclubz.ui.base.BaseBottomSheetFragment;
-import com.hmtsoft.uniclubz.ui.assignment03.EditProfileViewModel;
+import com.hmtsoft.uniclubz.ui.auth.editProfile.EditProfileViewModel;
 import com.hmtsoft.uniclubz.utils.ToastUtils;
 
 import java.util.ArrayList;

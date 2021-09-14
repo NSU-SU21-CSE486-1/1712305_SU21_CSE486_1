@@ -1,4 +1,4 @@
-package com.hmtsoft.uniclubz.ui.assignment03.adapter;
+package com.hmtsoft.uniclubz.ui.auth.editProfile.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

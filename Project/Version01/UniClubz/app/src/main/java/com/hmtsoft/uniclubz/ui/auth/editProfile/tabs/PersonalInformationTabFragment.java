@@ -1,4 +1,4 @@
-package com.hmtsoft.uniclubz.ui.assignment03.tabs;
+package com.hmtsoft.uniclubz.ui.auth.editProfile.tabs;
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,8 +9,8 @@ import androidx.lifecycle.ViewModelProvider;
 import com.hmtsoft.uniclubz.R;
 import com.hmtsoft.uniclubz.databinding.FragmentTabPersonalInformationBinding;
 import com.hmtsoft.uniclubz.ui.base.BaseFragment;
-import com.hmtsoft.uniclubz.ui.assignment03.EditProfileViewModel;
-import com.hmtsoft.uniclubz.ui.assignment03.modal.EditPersonalInformationBottomSheet;
+import com.hmtsoft.uniclubz.ui.auth.editProfile.EditProfileViewModel;
+import com.hmtsoft.uniclubz.ui.auth.editProfile.modal.EditPersonalInformationBottomSheet;
 
 public class PersonalInformationTabFragment extends BaseFragment<FragmentTabPersonalInformationBinding, EditProfileViewModel> {
 

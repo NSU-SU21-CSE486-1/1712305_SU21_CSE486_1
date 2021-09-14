@@ -1,4 +1,4 @@
-package com.hmtsoft.uniclubz.ui.assignment03.memberList;
+package com.hmtsoft.uniclubz.ui.auth.editProfile.memberList;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;

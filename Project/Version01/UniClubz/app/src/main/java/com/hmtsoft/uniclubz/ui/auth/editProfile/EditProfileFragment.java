@@ -1,31 +1,42 @@
-package com.hmtsoft.uniclubz.ui.assignment03;
+package com.hmtsoft.uniclubz.ui.auth.editProfile;
 
-import android.content.Intent;
+import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.hmtsoft.uniclubz.R;
-import com.hmtsoft.uniclubz.databinding.ActivityEditProfileBinding;
+import com.hmtsoft.uniclubz.databinding.FragmentEditProfileBinding;
 import com.hmtsoft.uniclubz.model.UserDetailsEntity;
-import com.hmtsoft.uniclubz.ui.assignment03.adapter.TabAdapter;
-import com.hmtsoft.uniclubz.ui.assignment03.memberList.MembersActivity;
-import com.hmtsoft.uniclubz.ui.assignment03.tabs.PersonalInformationTabFragment;
-import com.hmtsoft.uniclubz.ui.assignment03.tabs.PhoneNumbersTabFragment;
-import com.hmtsoft.uniclubz.ui.assignment03.tabs.UniversitiesTabFragment;
-import com.hmtsoft.uniclubz.ui.base.BaseActivity;
+import com.hmtsoft.uniclubz.ui.auth.editProfile.adapter.TabAdapter;
+import com.hmtsoft.uniclubz.ui.auth.editProfile.tabs.PersonalInformationTabFragment;
+import com.hmtsoft.uniclubz.ui.auth.editProfile.tabs.PhoneNumbersTabFragment;
+import com.hmtsoft.uniclubz.ui.auth.editProfile.tabs.UniversitiesTabFragment;
+import com.hmtsoft.uniclubz.ui.base.BaseFragment;
 import com.hmtsoft.uniclubz.utils.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class EditProfileActivity extends BaseActivity<ActivityEditProfileBinding, EditProfileViewModel> {
+import dagger.hilt.android.AndroidEntryPoint;
 
+@AndroidEntryPoint
+public class EditProfileFragment extends BaseFragment<FragmentEditProfileBinding, EditProfileViewModel> {
+
+    private EditProfileViewModel sharedViewModel;
     protected TabAdapter tabAdapter;
 
-    public EditProfileActivity() {
-        super(EditProfileViewModel.class, R.layout.activity_edit_profile);
+    public EditProfileFragment() {
+        super(EditProfileViewModel.class, R.layout.fragment_edit_profile);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        sharedViewModel = new ViewModelProvider(requireActivity()).get(EditProfileViewModel.class);
     }
 
     @Override
@@ -35,7 +46,7 @@ public class EditProfileActivity extends BaseActivity<ActivityEditProfileBinding
 
     private void setupTabs() {
 
-        tabAdapter = new TabAdapter(this);
+        tabAdapter = new TabAdapter(requireActivity());
 
         List<Fragment> fragmentList = new ArrayList<>();
         List<String> titleList = new ArrayList<>();
@@ -64,12 +75,9 @@ public class EditProfileActivity extends BaseActivity<ActivityEditProfileBinding
 
     @Override
     protected void liveEventsObservers() {
-        viewModel.userInsertObserver.observe(this, s -> {
+        sharedViewModel.userInsertObserver.observe(this, s -> {
             ToastUtils.show(s);
-            if (s.contains("success")) {
-                Intent intent = new Intent(this, MembersActivity.class);
-                startActivity(intent);
-            }
+            navController.navigate(R.id.homeFragment);
         });
     }
 
@@ -77,13 +85,8 @@ public class EditProfileActivity extends BaseActivity<ActivityEditProfileBinding
     @Override
     protected void clickListeners() {
 
-        binding.userList.setOnClickListener(v -> {
-            Intent intent = new Intent(this, MembersActivity.class);
-            startActivity(intent);
-        });
-
         binding.save.setOnClickListener(v -> {
-            UserDetailsEntity model = viewModel.getUserDetailsModel();
+            UserDetailsEntity model = sharedViewModel.getUserDetailsModel();
             String error = "";
             if (model == null || model.getFullName() == null)
                 error = "Please enter personal information";
@@ -96,8 +99,8 @@ public class EditProfileActivity extends BaseActivity<ActivityEditProfileBinding
                 ToastUtils.show(error);
                 return;
             }
-            viewModel.insertUserDetailsToDatabase();
-            viewModel.setUserDetailsModel(new UserDetailsEntity());
+            sharedViewModel.insertUserDetailsToDatabase();
+            sharedViewModel.setUserDetailsModel(new UserDetailsEntity());
         });
 
 

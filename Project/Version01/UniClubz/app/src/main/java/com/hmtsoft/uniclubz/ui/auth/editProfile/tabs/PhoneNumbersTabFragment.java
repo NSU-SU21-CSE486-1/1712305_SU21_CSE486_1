@@ -1,4 +1,4 @@
-package com.hmtsoft.uniclubz.ui.assignment03.tabs;
+package com.hmtsoft.uniclubz.ui.auth.editProfile.tabs;
 
 import android.os.Bundle;
 import android.view.View;
@@ -10,9 +10,9 @@ import com.hmtsoft.uniclubz.R;
 import com.hmtsoft.uniclubz.databinding.FragmentTabPhoneNumbersBinding;
 import com.hmtsoft.uniclubz.model.UserDetailsEntity;
 import com.hmtsoft.uniclubz.ui.base.BaseFragment;
-import com.hmtsoft.uniclubz.ui.assignment03.EditProfileViewModel;
-import com.hmtsoft.uniclubz.ui.assignment03.adapter.PhoneNumberAdapter;
-import com.hmtsoft.uniclubz.ui.assignment03.modal.EditPhoneNumberBottomSheet;
+import com.hmtsoft.uniclubz.ui.auth.editProfile.EditProfileViewModel;
+import com.hmtsoft.uniclubz.ui.auth.editProfile.adapter.PhoneNumberAdapter;
+import com.hmtsoft.uniclubz.ui.auth.editProfile.modal.EditPhoneNumberBottomSheet;
 
 public class PhoneNumbersTabFragment extends BaseFragment<FragmentTabPhoneNumbersBinding, EditProfileViewModel> {
     private EditProfileViewModel sharedViewModel;
