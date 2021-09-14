@@ -15,6 +15,10 @@ import androidx.databinding.library.baseAdapters.BR;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
+
+import com.hmtsoft.uniclubz.ui.main.MainActivity;
 
 @SuppressLint("SetTextI18n")
 public abstract class BaseFragment<DATA_BINDING extends ViewDataBinding, VIEW_MODEL extends ViewModel> extends Fragment {
@@ -25,6 +29,7 @@ public abstract class BaseFragment<DATA_BINDING extends ViewDataBinding, VIEW_MO
     private Class<VIEW_MODEL> viewModelClassType;
     @LayoutRes
     private int layoutId;
+    protected NavController navController;
 
     public BaseFragment(Class<VIEW_MODEL> viewModelClassType, int layoutId) {
         this.viewModelClassType = viewModelClassType;
@@ -45,6 +50,8 @@ public abstract class BaseFragment<DATA_BINDING extends ViewDataBinding, VIEW_MO
         binding.setLifecycleOwner(getViewLifecycleOwner());
         binding.executePendingBindings();
         bundle = getArguments();
+        if (getActivity() instanceof MainActivity)
+            navController = NavHostFragment.findNavController(this);
         return binding.getRoot();
     }
 

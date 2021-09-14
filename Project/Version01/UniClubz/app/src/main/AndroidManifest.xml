@@ -11,6 +11,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UniClubz">
         <activity
+            android:name=".ui.main.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".ui.assignment03.memberList.MembersActivity"
             android:exported="true" />
         <activity
@@ -23,7 +32,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.auth.myProfile.ProfileActivity" />
-        <activity android:name=".ui.auth.signup.SignUpActivity"></activity>
+        <activity android:name=".ui.auth.signup.SignUpFragment" />
         <activity android:name=".ui.auth.editProfileOld.EditProfileActivityOld" />
     </application>
 

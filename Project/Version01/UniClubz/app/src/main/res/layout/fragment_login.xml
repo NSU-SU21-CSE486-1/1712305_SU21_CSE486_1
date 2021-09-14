@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             app:navigationIcon="@drawable/ic_left_arrow"
-            app:title="Sign Up" />
+            app:title="Login" />
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -64,25 +64,6 @@
                     android:paddingHorizontal="16dp"
                     android:textSize="16sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:text="Confirm Password" />
-
-                <EditText
-                    android:id="@+id/etConfirmPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@drawable/input_bg"
-                    android:drawableLeft="@drawable/ic_lock"
-                    android:drawablePadding="10dp"
-                    android:hint="Enter you password"
-                    android:inputType="textPassword"
-                    android:paddingHorizontal="16dp"
-                    android:textSize="16sp" />
-
 
                 <TextView
                     android:id="@+id/btnSubmit"
@@ -94,11 +75,22 @@
                     android:fontFamily="sans-serif-medium"
                     android:gravity="center"
                     android:paddingHorizontal="16dp"
-                    android:text="Sign Up"
+                    android:text="Login"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
 
+
+                <TextView
+                    android:id="@+id/signUp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:text="Don't have account? Sign Up"
+                    android:textColor="#333" />
+
             </LinearLayout>
+
 
         </androidx.core.widget.NestedScrollView>
 
