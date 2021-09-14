@@ -23,7 +23,6 @@
             android:name=".ui.auth.editProfile.memberList.MembersActivity"
             android:exported="true" />
         <activity android:name=".ui.auth.myProfile.ProfileActivity" />
-        <activity android:name=".ui.auth.editProfileOld.EditProfileActivityOld" />
     </application>
 
 </manifest>

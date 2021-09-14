@@ -33,6 +33,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
         if (controller == null)
             controller = new HomeController();
 
+        controller.setNavController(navController);
         binding.recyclerView.setAdapter(controller.getAdapter());
         controller.requestModelBuild();
     }

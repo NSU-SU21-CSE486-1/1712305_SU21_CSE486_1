@@ -29,7 +29,7 @@ public class EditProfileViewModel extends ViewModel {
     protected DatabaseRepository databaseRepository;
     protected FirebaseDatabase firebaseDatabase;
 
-    public EditProfileViewModel(){
+    public EditProfileViewModel() {
 
     }
 
@@ -63,14 +63,15 @@ public class EditProfileViewModel extends ViewModel {
 
         userDetailsModel.setUid(PreferenceRepository.getUid());
 
-        DatabaseReference profileReference = firebaseDatabase.getReference("profiles");
+        DatabaseReference profileReference = firebaseDatabase.getReference("profiles").child(PreferenceRepository.getUid());
 
-        profileReference.push().setValue(userDetailsModel);
+        profileReference.setValue(userDetailsModel);
 
         profileReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 userInsertObserver.postValue("User profile successfully updated!");
+                PreferenceRepository.saveUserData(userDetailsModel);
             }
 
             @Override

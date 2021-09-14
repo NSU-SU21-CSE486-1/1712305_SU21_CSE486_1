@@ -1,6 +1,7 @@
 package com.hmtsoft.uniclubz.ui.base;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.hmtsoft.uniclubz.ui.main.MainActivity;
+import com.hmtsoft.uniclubz.utils.ViewDialog;
 
 @SuppressLint("SetTextI18n")
 public abstract class BaseFragment<DATA_BINDING extends ViewDataBinding, VIEW_MODEL extends ViewModel> extends Fragment {
@@ -30,6 +32,7 @@ public abstract class BaseFragment<DATA_BINDING extends ViewDataBinding, VIEW_MO
     @LayoutRes
     private int layoutId;
     protected NavController navController;
+    protected ViewDialog loadingDialog;
 
     public BaseFragment(Class<VIEW_MODEL> viewModelClassType, int layoutId) {
         this.viewModelClassType = viewModelClassType;
@@ -45,6 +48,7 @@ public abstract class BaseFragment<DATA_BINDING extends ViewDataBinding, VIEW_MO
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, layoutId, container, false);
+        loadingDialog = new ViewDialog(getActivity());
         viewModel = new ViewModelProvider(this).get(viewModelClassType);
         binding.setVariable(BR.viewModel, viewModel);
         binding.setLifecycleOwner(getViewLifecycleOwner());
