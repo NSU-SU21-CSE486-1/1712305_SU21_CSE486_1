@@ -3,10 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/drawable/bg_card_aqua_rounded.xml" value="0.4203125" />
+        <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/drawable/bg_round_top.xml" value="0.4203125" />
+        <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/drawable/bg_white_round.xml" value="0.4203125" />
+        <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/drawable/btn_my_blood_requests.xml" value="0.4203125" />
+        <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/drawable/btn_my_club.xml" value="0.4203125" />
+        <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/drawable/btn_my_clubs.xml" value="0.4203125" />
+        <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/drawable/btn_my_events.xml" value="0.4203125" />
+        <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/drawable/btn_my_profile.xml" value="0.4203125" />
+        <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/drawable/btn_my_universities.xml" value="0.4203125" />
+        <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/drawable/ic_menu_my_blood_bank.xml" value="0.4203125" />
+        <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/drawable/ic_menu_my_club.xml" value="0.4203125" />
+        <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/drawable/ic_menu_my_clubs.xml" value="0.4203125" />
+        <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/drawable/ic_menu_my_events.xml" value="0.4203125" />
+        <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/drawable/ic_menu_my_profile.xml" value="0.4203125" />
+        <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/drawable/ic_menu_my_university.xml" value="0.4203125" />
+        <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/drawable/ic_menu_user.xml" value="0.4203125" />
         <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/layout/activity_main.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/layout/activity_sign_up.xml" value="0.4" />
         <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/layout/fragment_login.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/layout/fragment_sign_up.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/layout/item_home_buttons.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Theory/Assignment/Assignment02/Project02/app/src/main/res/drawable/bg_round_top.xml" value="0.4203125" />
         <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Theory/Assignment/Assignment02/Project02/app/src/main/res/drawable/ic_plus.xml" value="0.4203125" />
         <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Theory/Assignment/Assignment02/Project02/app/src/main/res/drawable/input_bg.xml" value="0.4203125" />
