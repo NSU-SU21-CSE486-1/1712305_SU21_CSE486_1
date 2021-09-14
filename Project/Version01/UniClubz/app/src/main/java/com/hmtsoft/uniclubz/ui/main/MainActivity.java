@@ -48,7 +48,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         if (firebaseAuth.getCurrentUser() == null) {
             navController.navigate(R.id.loginFragment);
         } else {
-            Log.e("user info", new Gson().toJson(firebaseAuth.getCurrentUser().));
+            Log.e("user info", new Gson().toJson(firebaseAuth.getCurrentUser()));
         }
     }
 

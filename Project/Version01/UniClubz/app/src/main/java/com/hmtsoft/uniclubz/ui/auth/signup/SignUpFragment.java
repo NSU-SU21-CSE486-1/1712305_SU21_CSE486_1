@@ -5,6 +5,7 @@ import android.util.Log;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.hmtsoft.uniclubz.R;
+import com.hmtsoft.uniclubz.data.pref.PreferenceRepository;
 import com.hmtsoft.uniclubz.databinding.FragmentSignUpBinding;
 import com.hmtsoft.uniclubz.ui.base.BaseFragment;
 import com.hmtsoft.uniclubz.utils.ToastUtils;
@@ -68,6 +69,11 @@ public class SignUpFragment extends BaseFragment<FragmentSignUpBinding, SignUpVi
                     .addOnCompleteListener(requireActivity(), task -> {
                         if (task.isSuccessful()) {
                             FirebaseUser user = auth.getCurrentUser();
+                            if (user != null) {
+                                PreferenceRepository.saveEmail(user.getEmail());
+                                PreferenceRepository.saveUid(user.getUid());
+                                navController.navigate(R.id.homeFragment);
+                            }
                         } else {
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
                             ToastUtils.show(Objects.requireNonNull(task.getException()).getMessage());

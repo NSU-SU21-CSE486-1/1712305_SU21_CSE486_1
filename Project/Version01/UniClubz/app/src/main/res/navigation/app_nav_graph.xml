@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/app_nav_graph.xml"
-    app:startDestination="@id/signUpFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -12,4 +12,10 @@
         android:id="@+id/signUpFragment"
         android:name="com.hmtsoft.uniclubz.ui.auth.signup.SignUpFragment"
         android:label="SignUpFragment" />
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.hmtsoft.uniclubz.ui.home.HomeFragment"
+        android:label="HomeFragment" />
+
 </navigation>
