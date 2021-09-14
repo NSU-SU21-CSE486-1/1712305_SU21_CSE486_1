@@ -25,14 +25,8 @@
         <activity
             android:name=".ui.assignment03.EditProfileActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".ui.auth.myProfile.ProfileActivity" />
-        <activity android:name=".ui.auth.signup.SignUpFragment" />
         <activity android:name=".ui.auth.editProfileOld.EditProfileActivityOld" />
     </application>
 

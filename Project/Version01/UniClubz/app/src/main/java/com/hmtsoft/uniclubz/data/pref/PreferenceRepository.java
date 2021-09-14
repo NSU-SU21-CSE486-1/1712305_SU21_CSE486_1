@@ -22,4 +22,20 @@ public class PreferenceRepository {
         return PreferenceHelper.with(App.getContext()).getObject("USER_LIST_MODEL", UserListModel.class);
     }
 
+    public static String getEmail() {
+        return PreferenceHelper.with(App.getContext()).getString("email", "");
+    }
+
+    public static void saveEmail(String email) {
+        PreferenceHelper.with(App.getContext()).addString("email", email).save();
+    }
+
+    public static String getUid() {
+        return PreferenceHelper.with(App.getContext()).getString("uid", "");
+    }
+
+    public static void saveUid(String value) {
+        PreferenceHelper.with(App.getContext()).addString("uid", value).save();
+    }
+
 }
