@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.hmtsoft.uniclubz.R;
+import com.hmtsoft.uniclubz.data.pref.PreferenceRepository;
 import com.hmtsoft.uniclubz.databinding.BottomSheetEditPersonalInformationBinding;
 import com.hmtsoft.uniclubz.model.UserDetailsEntity;
 import com.hmtsoft.uniclubz.ui.base.BaseBottomSheetFragment;
@@ -38,6 +39,13 @@ public class EditPersonalInformationBottomSheet extends BaseBottomSheetFragment<
         materialDatePicker.addOnPositiveButtonClickListener(selection -> {
             binding.tvDateOfBirth.setText(materialDatePicker.getHeaderText());
         });
+
+        UserDetailsEntity model = PreferenceRepository.getUserData();
+        if (model != null){
+            binding.etFullName.setText(model.getFullName());
+            binding.etNid.setText(model.getNid());
+            binding.tvDateOfBirth.setText(model.getDateOfBirth());
+        }
 
     }
 

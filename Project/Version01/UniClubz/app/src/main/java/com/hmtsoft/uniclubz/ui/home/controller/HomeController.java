@@ -24,9 +24,8 @@ public class HomeController extends EpoxyController {
 
         new HomeWidgetModel_()
                 .id("home_widget")
-                .profileClickListener((model, parentView, clickedView, position) -> {
-                    navController.navigate(R.id.editProfileFragment);
-                })
+                .profileClickListener((model, parentView, clickedView, position) -> navController.navigate(R.id.editProfileFragment))
+                .universitiesClickListener((model, parentView, clickedView, position) -> navController.navigate(R.id.universitiesFragment))
                 .addTo(this);
 
     }

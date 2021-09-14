@@ -21,5 +21,10 @@
         android:id="@+id/editProfileFragment"
         android:name="com.hmtsoft.uniclubz.ui.auth.editProfile.EditProfileFragment"
         android:label="EditProfileFragment" />
+    <fragment
+        android:id="@+id/universitiesFragment"
+        android:name="com.hmtsoft.uniclubz.ui.universities.UniversitiesFragment"
+        android:label="UniversitiesFragment" />
+
 
 </navigation>

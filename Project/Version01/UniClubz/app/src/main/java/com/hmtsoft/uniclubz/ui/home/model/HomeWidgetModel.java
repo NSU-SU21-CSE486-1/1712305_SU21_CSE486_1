@@ -18,12 +18,16 @@ public abstract class HomeWidgetModel extends BaseDataBindingEpoxyModel {
     @EpoxyAttribute(EpoxyAttribute.Option.DoNotHash)
     View.OnClickListener profileClickListener;
 
+    @EpoxyAttribute(EpoxyAttribute.Option.DoNotHash)
+    View.OnClickListener universitiesClickListener;
+
 
     @Override
     public void bind(@NonNull DataBindingHolder holder) {
         super.bind(holder);
         ItemHomeButtonsBinding binding = (ItemHomeButtonsBinding) holder.getDataBinding();
         binding.myProfile.setOnClickListener(profileClickListener);
+        binding.exploreUniversities.setOnClickListener(universitiesClickListener);
     }
 
     @Override

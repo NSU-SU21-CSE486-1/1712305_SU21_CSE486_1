@@ -3,9 +3,11 @@
 
     <string-array name="universities">
         <item>North South University</item>
+        <item>American International University</item>
+        <item>Independent University Bangladesh</item>
         <item>BRAC University</item>
-        <item>Independent University</item>
-        <item>American Internation University</item>
+        <item>East West University</item>
+        <item>Daffodil University</item>
     </string-array>
 
     <string-array name="phone_number_tags">
