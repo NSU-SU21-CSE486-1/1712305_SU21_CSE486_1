@@ -1,8 +1,7 @@
-package com.hmtsoft.uniclubz.ui.clubs;
+package com.hmtsoft.uniclubz.ui.createClub;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.ViewModel;
 
 import com.google.firebase.database.DataSnapshot;
@@ -11,9 +10,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.hmtsoft.uniclubz.model.ClubEntity;
-import com.hmtsoft.uniclubz.model.UniversityEntity;
+import com.hmtsoft.uniclubz.utils.SingleLiveEvent;
+import com.hmtsoft.uniclubz.utils.ToastUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -21,35 +20,34 @@ import javax.inject.Inject;
 import dagger.hilt.android.lifecycle.HiltViewModel;
 
 @HiltViewModel
-public class ClubsViewModel extends ViewModel {
+public class CreateClubViewModel extends ViewModel {
 
     protected MutableLiveData<List<ClubEntity>> liveList = new MutableLiveData<>();
+    protected SingleLiveEvent<String> onClubCreated = new SingleLiveEvent<>();
     private FirebaseDatabase firebaseDatabase;
-    private DatabaseReference universityReference;
-    private UniversityEntity universityEntity;
+    private DatabaseReference reference;
 
     @Inject
-    public ClubsViewModel(FirebaseDatabase firebaseDatabase, SavedStateHandle savedStateHandle) {
+    public CreateClubViewModel(FirebaseDatabase firebaseDatabase) {
         this.firebaseDatabase = firebaseDatabase;
-        this.universityEntity = savedStateHandle.get("model");
+        this.reference = firebaseDatabase.getReference("clubs");
 
-        firebaseDatabase.getReference("clubs").orderByChild("university").equalTo(universityEntity.getName()).addValueEventListener(new ValueEventListener() {
+    }
+
+    public void createClub(ClubEntity entity) {
+        reference.push().setValue(entity);
+
+        reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                List<ClubEntity> list = new ArrayList<>();
-                for (DataSnapshot postSnapshot : snapshot.getChildren()) {
-                    ClubEntity item = postSnapshot.getValue(ClubEntity.class);
-                    list.add(item);
-                }
-                liveList.setValue(list);
+                onClubCreated.postValue("Club successfully created!");
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                ToastUtils.show(error.getMessage());
             }
         });
-
     }
 
 }

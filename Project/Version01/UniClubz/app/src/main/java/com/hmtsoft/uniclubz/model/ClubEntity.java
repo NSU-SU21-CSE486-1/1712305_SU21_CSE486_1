@@ -6,23 +6,31 @@ public class ClubEntity implements Serializable {
 
     private String id;
     private String name;
-    private String address;
     private String coverPhoto;
     private String logo;
     private String description;
     private String university;
+    private String adminUid;
 
     public ClubEntity() {
 
     }
 
-    public ClubEntity(String name, String address, String coverPhoto, String logo, String description, String university) {
+    public ClubEntity(String name, String university, String logo, String coverPhoto, String description, String adminUid) {
         this.name = name;
-        this.address = address;
         this.coverPhoto = coverPhoto;
         this.logo = logo;
         this.description = description;
         this.university = university;
+        this.adminUid = adminUid;
+    }
+
+    public void setAdminUid(String adminUid) {
+        this.adminUid = adminUid;
+    }
+
+    public String getAdminUid() {
+        return adminUid;
     }
 
     public void setId(String id) {
@@ -39,14 +47,6 @@ public class ClubEntity implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public String getCoverPhoto() {

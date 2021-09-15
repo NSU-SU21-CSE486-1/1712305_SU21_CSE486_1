@@ -25,6 +25,14 @@
         android:id="@+id/universitiesFragment"
         android:name="com.hmtsoft.uniclubz.ui.universities.UniversitiesFragment"
         android:label="UniversitiesFragment" />
+    <fragment
+        android:id="@+id/clubsFragment"
+        android:name="com.hmtsoft.uniclubz.ui.clubs.ClubsFragment"
+        android:label="ClubsFragment" />
+    <fragment
+        android:id="@+id/createClubFragment"
+        android:name="com.hmtsoft.uniclubz.ui.createClub.CreateClubFragment"
+        android:label="CreateClubFragment" />
 
 
 </navigation>
