@@ -1,4 +1,4 @@
-package com.hmtsoft.uniclubz.ui.auth.editProfile.modal;
+package com.hmtsoft.uniclubz.ui.editProfile.modal;
 
 import android.os.Bundle;
 
@@ -11,7 +11,7 @@ import com.hmtsoft.uniclubz.data.pref.PreferenceRepository;
 import com.hmtsoft.uniclubz.databinding.BottomSheetEditPersonalInformationBinding;
 import com.hmtsoft.uniclubz.model.UserDetailsEntity;
 import com.hmtsoft.uniclubz.ui.base.BaseBottomSheetFragment;
-import com.hmtsoft.uniclubz.ui.auth.editProfile.EditProfileViewModel;
+import com.hmtsoft.uniclubz.ui.editProfile.EditProfileViewModel;
 import com.hmtsoft.uniclubz.utils.ToastUtils;
 
 public class EditPersonalInformationBottomSheet extends BaseBottomSheetFragment<BottomSheetEditPersonalInformationBinding, EditProfileViewModel> {

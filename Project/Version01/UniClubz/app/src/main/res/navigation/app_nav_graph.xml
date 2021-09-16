@@ -6,11 +6,11 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.hmtsoft.uniclubz.ui.auth.login.LoginFragment"
+        android:name="com.hmtsoft.uniclubz.ui.login.LoginFragment"
         android:label="LoginFragment" />
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.hmtsoft.uniclubz.ui.auth.signup.SignUpFragment"
+        android:name="com.hmtsoft.uniclubz.ui.signup.SignUpFragment"
         android:label="SignUpFragment" />
 
     <fragment
@@ -19,7 +19,7 @@
         android:label="HomeFragment" />
     <fragment
         android:id="@+id/editProfileFragment"
-        android:name="com.hmtsoft.uniclubz.ui.auth.editProfile.EditProfileFragment"
+        android:name="com.hmtsoft.uniclubz.ui.editProfile.EditProfileFragment"
         android:label="EditProfileFragment" />
     <fragment
         android:id="@+id/universitiesFragment"

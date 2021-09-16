@@ -1,4 +1,4 @@
-package com.hmtsoft.uniclubz.ui.auth.editProfile;
+package com.hmtsoft.uniclubz.ui.editProfile;
 
 import android.os.Bundle;
 
@@ -11,10 +11,10 @@ import com.google.android.material.tabs.TabLayoutMediator;
 import com.hmtsoft.uniclubz.R;
 import com.hmtsoft.uniclubz.databinding.FragmentEditProfileBinding;
 import com.hmtsoft.uniclubz.model.UserDetailsEntity;
-import com.hmtsoft.uniclubz.ui.auth.editProfile.adapter.TabAdapter;
-import com.hmtsoft.uniclubz.ui.auth.editProfile.tabs.PersonalInformationTabFragment;
-import com.hmtsoft.uniclubz.ui.auth.editProfile.tabs.PhoneNumbersTabFragment;
-import com.hmtsoft.uniclubz.ui.auth.editProfile.tabs.UniversitiesTabFragment;
+import com.hmtsoft.uniclubz.ui.editProfile.adapter.TabAdapter;
+import com.hmtsoft.uniclubz.ui.editProfile.tabs.PersonalInformationTabFragment;
+import com.hmtsoft.uniclubz.ui.editProfile.tabs.PhoneNumbersTabFragment;
+import com.hmtsoft.uniclubz.ui.editProfile.tabs.UniversitiesTabFragment;
 import com.hmtsoft.uniclubz.ui.base.BaseFragment;
 import com.hmtsoft.uniclubz.utils.ToastUtils;
 

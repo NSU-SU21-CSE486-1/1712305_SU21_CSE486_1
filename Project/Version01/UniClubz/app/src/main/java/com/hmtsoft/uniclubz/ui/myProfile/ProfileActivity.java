@@ -1,4 +1,4 @@
-package com.hmtsoft.uniclubz.ui.auth.myProfile;
+package com.hmtsoft.uniclubz.ui.myProfile;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;

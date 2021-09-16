@@ -1,4 +1,4 @@
-package com.hmtsoft.uniclubz.ui.auth.editProfile;
+package com.hmtsoft.uniclubz.ui.editProfile;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;

@@ -9,7 +9,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.UniClubz">
+        android:theme="@style/Theme.UniClubz"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="true">
@@ -20,9 +21,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.auth.editProfile.memberList.MembersActivity"
+            android:name=".ui.editProfile.memberList.MembersActivity"
             android:exported="true" />
-        <activity android:name=".ui.auth.myProfile.ProfileActivity" />
+        <activity android:name=".ui.myProfile.ProfileActivity" />
     </application>
 
 </manifest>

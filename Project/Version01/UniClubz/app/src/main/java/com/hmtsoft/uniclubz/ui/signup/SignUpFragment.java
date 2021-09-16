@@ -1,4 +1,4 @@
-package com.hmtsoft.uniclubz.ui.auth.signup;
+package com.hmtsoft.uniclubz.ui.signup;
 
 import android.util.Log;
 

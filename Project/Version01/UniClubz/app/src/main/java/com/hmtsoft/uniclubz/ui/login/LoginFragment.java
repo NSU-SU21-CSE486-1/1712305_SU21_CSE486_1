@@ -1,4 +1,4 @@
-package com.hmtsoft.uniclubz.ui.auth.login;
+package com.hmtsoft.uniclubz.ui.login;
 
 import androidx.annotation.NonNull;
 
