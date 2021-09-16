@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/drawable/bg_card_aqua_rounded.xml" value="0.4203125" />
         <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/drawable/bg_round_top.xml" value="0.4203125" />
+        <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/drawable/bg_toolbar_round.xml" value="1.7857142857142858" />
         <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/drawable/bg_white_round.xml" value="0.4203125" />
         <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/drawable/btn_my_blood_requests.xml" value="0.4203125" />
         <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/drawable/btn_my_club.xml" value="0.4203125" />
@@ -19,6 +20,7 @@
         <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/drawable/ic_menu_my_profile.xml" value="0.4203125" />
         <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/drawable/ic_menu_my_university.xml" value="0.4203125" />
         <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/drawable/ic_menu_user.xml" value="0.4203125" />
+        <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/drawable/statusbar_gradient.xml" value="0.41384615384615386" />
         <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/layout/activity_edit_profile.xml" value="0.4" />
         <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/layout/activity_main.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/layout/activity_sign_up.xml" value="0.4" />
@@ -26,6 +28,7 @@
         <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/layout/bottom_sheet_edit_phone_number.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/layout/bottom_sheet_edit_university.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/layout/dialog_loading_layout.xml" value="0.23072916666666668" />
+        <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/layout/fragment_club_details.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/layout/fragment_clubs.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/layout/fragment_create_blood_request.xml" value="0.4" />
         <entry key="..\:/Users/Tamim/Documents/CSE486/1712305_SU21_CSE486_1/Project/Version01/UniClubz/app/src/main/res/layout/fragment_create_club.xml" value="0.4041666666666667" />
