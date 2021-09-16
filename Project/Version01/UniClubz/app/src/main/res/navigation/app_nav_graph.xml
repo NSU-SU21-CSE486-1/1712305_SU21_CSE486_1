@@ -33,6 +33,10 @@
         android:id="@+id/createClubFragment"
         android:name="com.hmtsoft.uniclubz.ui.createClub.CreateClubFragment"
         android:label="CreateClubFragment" />
+    <fragment
+        android:id="@+id/clubDetailsFragment"
+        android:name="com.hmtsoft.uniclubz.ui.clubDetails.ClubDetailsFragment"
+        android:label="ClubDetailsFragment" />
 
 
 </navigation>

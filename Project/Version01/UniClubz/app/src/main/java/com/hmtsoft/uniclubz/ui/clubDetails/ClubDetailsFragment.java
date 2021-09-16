@@ -1,5 +1,9 @@
 package com.hmtsoft.uniclubz.ui.clubDetails;
 
+import android.graphics.Color;
+import android.os.Build;
+import android.view.View;
+
 import com.bumptech.glide.Glide;
 import com.google.firebase.database.FirebaseDatabase;
 import com.hmtsoft.uniclubz.R;
@@ -24,14 +28,14 @@ public class ClubDetailsFragment extends BaseFragment<FragmentClubDetailsBinding
 
     @Override
     protected void initViews() {
-
+        transparentStatusBar();
     }
 
     @Override
     protected void liveEventsObservers() {
 
         viewModel.clubDetails.observe(getViewLifecycleOwner(), entity -> {
-            binding.title.setText(entity.getName());
+            binding.tvName.setText(entity.getName());
             binding.tvUniversity.setText(entity.getUniversity());
             binding.tvDescription.setText(entity.getDescription());
             Glide.with(this)
@@ -62,5 +66,31 @@ public class ClubDetailsFragment extends BaseFragment<FragmentClubDetailsBinding
         controller.setNavController(navController);
         binding.recyclerView.setAdapter(controller.getAdapter());
         controller.requestModelBuild();
+    }
+
+    private void transparentStatusBar() {
+        if (getActivity() != null && getActivity().getWindow() != null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                // getActivity().getWindow().getDecorView().setSystemUiVisibility(0);
+                getActivity().getWindow().setStatusBarColor(Color.TRANSPARENT);
+            }
+        }
+    }
+
+    private void whiteStatusBar() {
+        if (getActivity() != null && getActivity().getWindow() != null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                int flags = getActivity().getWindow().getDecorView().getSystemUiVisibility();
+                flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+                getActivity().getWindow().getDecorView().setSystemUiVisibility(flags);
+                getActivity().getWindow().setStatusBarColor(getResources().getColor(android.R.color.white));
+            }
+        }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        whiteStatusBar();
     }
 }

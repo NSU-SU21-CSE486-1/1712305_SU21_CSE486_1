@@ -1,8 +1,11 @@
 package com.hmtsoft.uniclubz.ui.clubs;
 
+import android.os.Bundle;
+
 import com.google.firebase.database.FirebaseDatabase;
 import com.hmtsoft.uniclubz.R;
 import com.hmtsoft.uniclubz.databinding.FragmentClubsBinding;
+import com.hmtsoft.uniclubz.model.ClubEntity;
 import com.hmtsoft.uniclubz.ui.base.BaseFragment;
 import com.hmtsoft.uniclubz.ui.clubs.controller.ClubsController;
 
@@ -11,7 +14,7 @@ import javax.inject.Inject;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class ClubsFragment extends BaseFragment<FragmentClubsBinding, ClubsViewModel> {
+public class ClubsFragment extends BaseFragment<FragmentClubsBinding, ClubsViewModel> implements ClubsController.ClickListener {
 
     @Inject
     FirebaseDatabase firebaseDatabase;
@@ -45,8 +48,16 @@ public class ClubsFragment extends BaseFragment<FragmentClubsBinding, ClubsViewM
         if (controller == null)
             controller = new ClubsController();
 
+        controller.setClickListener(this);
         controller.setNavController(navController);
         binding.recyclerView.setAdapter(controller.getAdapter());
         controller.requestModelBuild();
+    }
+
+    @Override
+    public void onClick(ClubEntity entity) {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("model", entity);
+        navController.navigate(R.id.clubDetailsFragment, bundle);
     }
 }
