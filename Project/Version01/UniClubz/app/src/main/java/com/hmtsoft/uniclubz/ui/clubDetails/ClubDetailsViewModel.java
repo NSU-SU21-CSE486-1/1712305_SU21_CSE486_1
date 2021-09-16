@@ -1,4 +1,4 @@
-package com.hmtsoft.uniclubz.ui.clubs;
+package com.hmtsoft.uniclubz.ui.clubDetails;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
@@ -12,6 +12,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.hmtsoft.uniclubz.model.ClubEntity;
 import com.hmtsoft.uniclubz.model.UniversityEntity;
+import com.hmtsoft.uniclubz.model.UserDetailsEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,26 +22,23 @@ import javax.inject.Inject;
 import dagger.hilt.android.lifecycle.HiltViewModel;
 
 @HiltViewModel
-public class ClubsViewModel extends ViewModel {
+public class ClubDetailsViewModel extends ViewModel {
 
-    protected MutableLiveData<List<ClubEntity>> liveList = new MutableLiveData<>();
+    protected MutableLiveData<ClubEntity> clubDetails = new MutableLiveData<>();
+    protected MutableLiveData<List<UserDetailsEntity>> liveList = new MutableLiveData<>();
     private FirebaseDatabase firebaseDatabase;
-    private DatabaseReference universityReference;
-    private UniversityEntity universityEntity;
 
     @Inject
-    public ClubsViewModel(FirebaseDatabase firebaseDatabase, SavedStateHandle savedStateHandle) {
+    public ClubDetailsViewModel(FirebaseDatabase firebaseDatabase, SavedStateHandle savedStateHandle) {
         this.firebaseDatabase = firebaseDatabase;
-        this.universityEntity = savedStateHandle.get("model");
+        this.clubDetails.setValue(savedStateHandle.get("model"));
 
-        firebaseDatabase.getReference("clubs").orderByChild("university").equalTo(universityEntity.getName()).addValueEventListener(new ValueEventListener() {
+        firebaseDatabase.getReference("profiles").orderByChild("groupId").equalTo(clubDetails.getValue().getId()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                List<ClubEntity> list = new ArrayList<>();
+                List<UserDetailsEntity> list = new ArrayList<>();
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
-                    ClubEntity item = postSnapshot.getValue(ClubEntity.class);
-                    assert item != null;
-                    item.setId(postSnapshot.getKey());
+                    UserDetailsEntity item = postSnapshot.getValue(UserDetailsEntity.class);
                     list.add(item);
                 }
                 liveList.setValue(list);

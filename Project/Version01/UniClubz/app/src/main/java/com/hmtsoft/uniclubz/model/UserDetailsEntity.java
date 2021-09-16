@@ -32,12 +32,21 @@ public class UserDetailsEntity implements Serializable {
     private List<PhoneNumberModel> phoneNumbers;
 
     private String uid;
+    private String groupId;
 
     public void setPersonalInformation(String fullName, String dateOfBirth, String bloodGroup, String nid) {
         this.fullName = fullName;
         this.dateOfBirth = dateOfBirth;
         this.bloodGroup = bloodGroup;
         this.nid = nid;
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
+    }
+
+    public String getGroupId() {
+        return groupId;
     }
 
     public String getUid() {
