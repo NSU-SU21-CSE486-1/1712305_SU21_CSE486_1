@@ -11,11 +11,11 @@ import com.google.android.material.tabs.TabLayoutMediator;
 import com.hmtsoft.uniclubz.R;
 import com.hmtsoft.uniclubz.databinding.FragmentEditProfileBinding;
 import com.hmtsoft.uniclubz.model.UserDetailsEntity;
+import com.hmtsoft.uniclubz.ui.base.BaseFragment;
 import com.hmtsoft.uniclubz.ui.editProfile.adapter.TabAdapter;
 import com.hmtsoft.uniclubz.ui.editProfile.tabs.PersonalInformationTabFragment;
 import com.hmtsoft.uniclubz.ui.editProfile.tabs.PhoneNumbersTabFragment;
 import com.hmtsoft.uniclubz.ui.editProfile.tabs.UniversitiesTabFragment;
-import com.hmtsoft.uniclubz.ui.base.BaseFragment;
 import com.hmtsoft.uniclubz.utils.ToastUtils;
 
 import java.util.ArrayList;
@@ -84,6 +84,8 @@ public class EditProfileFragment extends BaseFragment<FragmentEditProfileBinding
 
     @Override
     protected void clickListeners() {
+
+        binding.toolbar.setNavigationOnClickListener(backPressClickListener);
 
         binding.save.setOnClickListener(v -> {
             UserDetailsEntity model = sharedViewModel.getUserDetailsModel();

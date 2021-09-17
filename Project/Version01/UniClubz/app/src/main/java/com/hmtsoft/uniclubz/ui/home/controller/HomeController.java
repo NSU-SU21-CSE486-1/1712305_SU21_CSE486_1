@@ -5,6 +5,7 @@ import androidx.navigation.NavController;
 import com.airbnb.epoxy.CarouselModel_;
 import com.airbnb.epoxy.EpoxyController;
 import com.hmtsoft.uniclubz.R;
+import com.hmtsoft.uniclubz.data.pref.PreferenceRepository;
 import com.hmtsoft.uniclubz.model.BloodRequestEntity;
 import com.hmtsoft.uniclubz.model.EventEntity;
 import com.hmtsoft.uniclubz.ui.base.BaseDataBindingEpoxyModel;
@@ -13,6 +14,7 @@ import com.hmtsoft.uniclubz.ui.home.model.EventHorizontalModel_;
 import com.hmtsoft.uniclubz.ui.home.model.HomeHeaderModel_;
 import com.hmtsoft.uniclubz.ui.home.model.HomeWidgetModel_;
 import com.hmtsoft.uniclubz.ui.home.model.SectionTitleModel_;
+import com.hmtsoft.uniclubz.utils.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +39,13 @@ public class HomeController extends EpoxyController {
         new HomeWidgetModel_()
                 .id("home_widget")
                 .profileClickListener((model, parentView, clickedView, position) -> navController.navigate(R.id.editProfileFragment))
+                .myClubClickListener((model, parentView, clickedView, position) -> {
+                    if (PreferenceRepository.getUserData().getClubId() == null || PreferenceRepository.getUserData().getClubId().isEmpty()) {
+                        navController.navigate(R.id.clubsFragment);
+                        ToastUtils.show("Please join a club first");
+                    } else
+                        navController.navigate(R.id.clubDetailsFragment);
+                })
                 .universitiesClickListener((model, parentView, clickedView, position) -> navController.navigate(R.id.universitiesFragment))
                 .bloodRequestsClickListener((model, parentView, clickedView, position) -> navController.navigate(R.id.bloodRequestsFragment))
                 .eventsClickListener((model, parentView, clickedView, position) -> navController.navigate(R.id.exploreEventsFragment))

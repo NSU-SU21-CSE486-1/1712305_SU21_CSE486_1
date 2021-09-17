@@ -9,6 +9,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.hmtsoft.uniclubz.data.pref.PreferenceRepository;
 import com.hmtsoft.uniclubz.model.BloodRequestEntity;
 import com.hmtsoft.uniclubz.model.ClubEntity;
 import com.hmtsoft.uniclubz.model.EventEntity;
@@ -33,11 +34,34 @@ public class ClubDetailsViewModel extends ViewModel {
     @Inject
     public ClubDetailsViewModel(FirebaseDatabase firebaseDatabase, SavedStateHandle savedStateHandle) {
         this.firebaseDatabase = firebaseDatabase;
-        this.clubDetails.setValue(savedStateHandle.get("model"));
+
+        String clubId = PreferenceRepository.getUserData().getClubId();
+        if (savedStateHandle.contains("model")) {
+            this.clubDetails.setValue(savedStateHandle.get("model"));
+            clubId = clubDetails.getValue().getId();
+        } else {
+            firebaseDatabase.getReference("clubs")
+                    .child(PreferenceRepository.getUserData().getClubId())
+                    .addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            ClubEntity clubEntity = snapshot.getValue(ClubEntity.class);
+                            if (clubEntity != null) {
+                                clubEntity.setId(snapshot.getKey());
+                                clubDetails.setValue(clubEntity);
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+        }
 
         firebaseDatabase.getReference("profiles")
                 .orderByChild("clubId")
-                .equalTo(clubDetails.getValue().getId())
+                .equalTo(clubId)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -57,7 +81,7 @@ public class ClubDetailsViewModel extends ViewModel {
 
         firebaseDatabase.getReference("events")
                 .orderByChild("clubId")
-                .equalTo(clubDetails.getValue().getId())
+                .equalTo(clubId)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -77,7 +101,7 @@ public class ClubDetailsViewModel extends ViewModel {
 
         firebaseDatabase.getReference("blood_requests")
                 .orderByChild("clubId")
-                .equalTo(clubDetails.getValue().getId())
+                .equalTo(clubId)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
