@@ -14,6 +14,8 @@ import com.hmtsoft.uniclubz.model.BloodRequestEntity;
 import com.hmtsoft.uniclubz.model.ClubEntity;
 import com.hmtsoft.uniclubz.model.EventEntity;
 import com.hmtsoft.uniclubz.model.UserDetailsEntity;
+import com.hmtsoft.uniclubz.utils.SingleLiveEvent;
+import com.hmtsoft.uniclubz.utils.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +28,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel;
 public class ClubDetailsViewModel extends ViewModel {
 
     protected MutableLiveData<ClubEntity> clubDetails = new MutableLiveData<>();
+    protected SingleLiveEvent<String> joinedClubLiveData = new SingleLiveEvent<>();
     protected MutableLiveData<List<UserDetailsEntity>> memberLiveList = new MutableLiveData<>();
     protected MutableLiveData<List<EventEntity>> eventLiveList = new MutableLiveData<>();
     protected MutableLiveData<List<BloodRequestEntity>> bloodRequestLiveList = new MutableLiveData<>();
@@ -116,6 +119,24 @@ public class ClubDetailsViewModel extends ViewModel {
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
 
+                    }
+                });
+    }
+
+
+    public void joinClub() {
+        firebaseDatabase.getReference("profiles")
+                .child(PreferenceRepository.getUid())
+                .child("clubId")
+                .setValue(clubDetails.getValue().getId())
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        UserDetailsEntity entity = PreferenceRepository.getUserData();
+                        entity.setClubId(clubDetails.getValue().getId());
+                        PreferenceRepository.saveUserData(entity);
+                        joinedClubLiveData.setValue("Successfully joined to this club");
+                    } else {
+                        ToastUtils.show(task.getException().getMessage());
                     }
                 });
     }

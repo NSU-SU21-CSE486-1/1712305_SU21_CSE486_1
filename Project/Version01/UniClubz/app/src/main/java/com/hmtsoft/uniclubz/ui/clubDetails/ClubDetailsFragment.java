@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.firebase.database.FirebaseDatabase;
 import com.hmtsoft.uniclubz.R;
 import com.hmtsoft.uniclubz.data.pref.PreferenceRepository;
@@ -13,6 +14,7 @@ import com.hmtsoft.uniclubz.databinding.FragmentClubDetailsBinding;
 import com.hmtsoft.uniclubz.model.UserDetailsEntity;
 import com.hmtsoft.uniclubz.ui.base.BaseFragment;
 import com.hmtsoft.uniclubz.ui.clubDetails.controller.ClubDetailsController;
+import com.hmtsoft.uniclubz.utils.ToastUtils;
 
 import javax.inject.Inject;
 
@@ -84,13 +86,17 @@ public class ClubDetailsFragment extends BaseFragment<FragmentClubDetailsBinding
             controller.setBloodRequestList(entities);
             controller.requestModelBuild();
         });
+
+        viewModel.joinedClubLiveData.observe(getViewLifecycleOwner(), s -> {
+            ToastUtils.show(s);
+            binding.joinClub.setVisibility(View.GONE);
+        });
     }
 
     @Override
     protected void clickListeners() {
         binding.toolbar.setNavigationOnClickListener(backPressClickListener);
         binding.back.setOnClickListener(backPressClickListener);
-
 
         binding.createEvent.setOnClickListener(v -> {
             Bundle bundle = new Bundle();
@@ -102,6 +108,16 @@ public class ClubDetailsFragment extends BaseFragment<FragmentClubDetailsBinding
             Bundle bundle = new Bundle();
             bundle.putSerializable("model", viewModel.clubDetails.getValue());
             navController.navigate(R.id.createBloodRequestFragment, bundle);
+        });
+
+        binding.joinClub.setOnClickListener(v -> {
+            new MaterialAlertDialogBuilder(getContext(), R.style.AlertDialogTheme)
+                    .setMessage("Are you sure you want join this club?")
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> {
+                        viewModel.joinClub();
+                    })
+                    .setNegativeButton(android.R.string.no, null).show();
         });
     }
 

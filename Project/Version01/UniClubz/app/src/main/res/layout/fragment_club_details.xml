@@ -131,9 +131,9 @@
                         android:ellipsize="end"
                         android:maxLines="5"
                         android:paddingHorizontal="15dp"
-                        android:text="NSU CEC is the one and only Engineering club in ECE department of North South University, established in Fall 2015, affiliated from three of the most reputed clubs of NSU, which are NSU Computer Club (NSUCC) NSU Wireless Forum (NSU WF) and.... Show More"
                         android:textColor="@color/black"
-                        android:textSize="15sp" />
+                        android:textSize="15sp"
+                        tools:text="NSU CEC is the one and only Engineering club in ECE department of North South University, established in Fall 2015, affiliated from three of the most reputed clubs of NSU, which are NSU Computer Club (NSUCC) NSU Wireless Forum (NSU WF) and.... Show More" />
 
 
                     <LinearLayout

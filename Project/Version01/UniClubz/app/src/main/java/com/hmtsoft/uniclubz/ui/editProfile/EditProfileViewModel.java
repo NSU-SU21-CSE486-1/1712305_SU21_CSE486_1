@@ -70,8 +70,8 @@ public class EditProfileViewModel extends ViewModel {
         profileReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                userInsertObserver.postValue("User profile successfully updated!");
                 PreferenceRepository.saveUserData(userDetailsModel);
+                userInsertObserver.postValue("User profile successfully updated!");
             }
 
             @Override
