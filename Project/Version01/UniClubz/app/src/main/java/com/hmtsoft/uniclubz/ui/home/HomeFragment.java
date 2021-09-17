@@ -28,7 +28,15 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeViewMode
 
     @Override
     protected void liveEventsObservers() {
+        viewModel.eventLiveList.observe(getViewLifecycleOwner(), entities -> {
+            controller.setEventList(entities);
+            controller.requestModelBuild();
+        });
 
+        viewModel.bloodRequestLiveList.observe(getViewLifecycleOwner(), entities -> {
+            controller.setBloodRequestList(entities);
+            controller.requestModelBuild();
+        });
     }
 
     @Override
