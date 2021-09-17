@@ -54,6 +54,10 @@
         android:id="@+id/bloodRequestsFragment"
         android:name="com.hmtsoft.uniclubz.ui.bloodRequests.BloodRequestsFragment"
         android:label="BloodRequestsFragment" />
+    <fragment
+        android:id="@+id/exploreEventsFragment"
+        android:name="com.hmtsoft.uniclubz.ui.exploreEvents.ExploreEventsFragment"
+        android:label="ExploreEventsFragment" />
 
 
 </navigation>

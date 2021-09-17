@@ -39,7 +39,7 @@ public class HomeController extends EpoxyController {
                 .profileClickListener((model, parentView, clickedView, position) -> navController.navigate(R.id.editProfileFragment))
                 .universitiesClickListener((model, parentView, clickedView, position) -> navController.navigate(R.id.universitiesFragment))
                 .bloodRequestsClickListener((model, parentView, clickedView, position) -> navController.navigate(R.id.bloodRequestsFragment))
-                .eventsClickListener((model, parentView, clickedView, position) -> navController.navigate(R.id.universitiesFragment))
+                .eventsClickListener((model, parentView, clickedView, position) -> navController.navigate(R.id.exploreEventsFragment))
                 .exploreClubsClickListener((model, parentView, clickedView, position) -> navController.navigate(R.id.clubsFragment))
                 .addTo(this);
 
