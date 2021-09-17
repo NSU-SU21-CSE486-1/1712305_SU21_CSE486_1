@@ -102,7 +102,6 @@ public class EditProfileFragment extends BaseFragment<FragmentEditProfileBinding
                 return;
             }
             sharedViewModel.insertUserDetailsToDatabase();
-            sharedViewModel.setUserDetailsModel(new UserDetailsEntity());
         });
 
 

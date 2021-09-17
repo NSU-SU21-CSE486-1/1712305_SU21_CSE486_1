@@ -38,4 +38,8 @@ public class PreferenceRepository {
         PreferenceHelper.with(App.getContext()).addString("uid", value).save();
     }
 
+    public static void clearAll(){
+        PreferenceHelper.with(App.getContext()).clearAll();
+    }
+
 }

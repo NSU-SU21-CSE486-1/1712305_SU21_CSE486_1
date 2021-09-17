@@ -32,13 +32,16 @@
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
                 android:text="North South University"
-                android:textColor="@color/accentColor" />
+                android:textColor="@color/accentColor"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/subTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:text="BSc · ECE Dept"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
@@ -47,7 +50,7 @@
                 android:id="@+id/subTitle2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:text="01751977045\nhm.tamim@northsouth.edu"
                 android:textColor="@color/black"
                 android:textSize="14sp" />

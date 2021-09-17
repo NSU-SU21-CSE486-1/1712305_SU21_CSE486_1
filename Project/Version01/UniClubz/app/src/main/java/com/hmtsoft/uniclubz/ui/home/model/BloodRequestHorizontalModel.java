@@ -29,7 +29,8 @@ public abstract class BloodRequestHorizontalModel extends BaseDataBindingEpoxyMo
         binding.whenDate.setText(model.getDate());
         binding.address.setText(model.getAddress());
         binding.phone.setText(model.getPhoneNumber());
-        binding.title.setText(model.getBags() + " Bags" + model.getBloodGroup() + " Blood Needed");
+        binding.title.setText(model.getBags() + " Bags " + model.getBloodGroup() + " Blood Needed");
+        binding.byUser.setText(model.getClubName());
 
         binding.phone.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", model.getPhoneNumber(), null));

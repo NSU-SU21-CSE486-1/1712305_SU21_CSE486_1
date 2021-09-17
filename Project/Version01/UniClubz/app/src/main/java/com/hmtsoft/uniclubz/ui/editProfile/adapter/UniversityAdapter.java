@@ -35,7 +35,7 @@ public class UniversityAdapter extends RecyclerView.Adapter<UniversityAdapter.Vi
         UniversityModel model = itemList.get(position);
         holder.binding.title.setText(model.getUniversity());
         holder.binding.subTitle.setText(model.getStudyLevel() + "\n" + model.getDepartment());
-        holder.binding.subTitle2.setText(model.getStudentId() + " • " + model.getEmail());
+        holder.binding.subTitle2.setText("• " + model.getStudentId() + " \n• " + model.getEmail());
     }
 
 
