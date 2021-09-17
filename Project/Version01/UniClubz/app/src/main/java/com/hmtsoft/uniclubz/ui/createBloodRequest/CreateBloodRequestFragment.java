@@ -1,5 +1,6 @@
 package com.hmtsoft.uniclubz.ui.createBloodRequest;
 
+import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.firebase.database.FirebaseDatabase;
 import com.hmtsoft.uniclubz.R;
 import com.hmtsoft.uniclubz.data.pref.PreferenceRepository;
@@ -17,8 +18,7 @@ public class CreateBloodRequestFragment extends BaseFragment<FragmentCreateBlood
 
     @Inject
     FirebaseDatabase firebaseDatabase;
-
-    private String clubId = null;
+    private MaterialDatePicker materialDatePicker;
 
     public CreateBloodRequestFragment() {
         super(CreateBloodRequestViewModel.class, R.layout.fragment_create_blood_request);
@@ -26,8 +26,7 @@ public class CreateBloodRequestFragment extends BaseFragment<FragmentCreateBlood
 
     @Override
     protected void initViews() {
-        if (getArguments() != null && getArguments().containsKey("club_id"))
-            clubId = getArguments().getString("club_id");
+
     }
 
     @Override
@@ -67,10 +66,22 @@ public class CreateBloodRequestFragment extends BaseFragment<FragmentCreateBlood
                 return;
             }
 
-            BloodRequestEntity entity = new BloodRequestEntity(bloodGroup, bags, date, phoneNumber, address, note, PreferenceRepository.getUid(), clubId);
+            BloodRequestEntity entity = new BloodRequestEntity(bloodGroup, bags, date, phoneNumber, address, note, PreferenceRepository.getUid());
 
             viewModel.create(entity);
 
+        });
+
+        MaterialDatePicker.Builder materialDateBuilder = MaterialDatePicker.Builder.datePicker();
+        materialDateBuilder.setTheme(R.style.MaterialCalendarTheme);
+        materialDateBuilder.setTitleText("SELECT DATE WHEN BLOOD IS NEEDED");
+        materialDatePicker = materialDateBuilder.build();
+        materialDatePicker.addOnPositiveButtonClickListener(selection -> {
+            binding.tvDate.setText(materialDatePicker.getHeaderText());
+        });
+
+        binding.tvDate.setOnClickListener(v -> {
+            materialDatePicker.show(getParentFragmentManager(), "date_picker");
         });
     }
 

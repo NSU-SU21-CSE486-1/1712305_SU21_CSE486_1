@@ -1,5 +1,6 @@
 package com.hmtsoft.uniclubz.ui.createEvent;
 
+import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.firebase.database.FirebaseDatabase;
 import com.hmtsoft.uniclubz.R;
 import com.hmtsoft.uniclubz.data.pref.PreferenceRepository;
@@ -17,8 +18,7 @@ public class CreateEventFragment extends BaseFragment<FragmentCreateEventBinding
 
     @Inject
     FirebaseDatabase firebaseDatabase;
-
-    private String clubId = null;
+    private MaterialDatePicker materialDatePicker;
 
     public CreateEventFragment() {
         super(CreateEventViewModel.class, R.layout.fragment_create_event);
@@ -26,9 +26,6 @@ public class CreateEventFragment extends BaseFragment<FragmentCreateEventBinding
 
     @Override
     protected void initViews() {
-
-        if (getArguments() != null && getArguments().containsKey("club_id"))
-            clubId = getArguments().getString("club_id");
 
     }
 
@@ -72,10 +69,22 @@ public class CreateEventFragment extends BaseFragment<FragmentCreateEventBinding
                 return;
             }
 
-            EventEntity entity = new EventEntity(name, coverUrl, description, university, PreferenceRepository.getUid(), clubId);
+            EventEntity entity = new EventEntity(name, coverUrl, description, university, PreferenceRepository.getUid(), date);
 
             viewModel.create(entity);
 
+        });
+
+        MaterialDatePicker.Builder materialDateBuilder = MaterialDatePicker.Builder.datePicker();
+        materialDateBuilder.setTheme(R.style.MaterialCalendarTheme);
+        materialDateBuilder.setTitleText("SELECT DATE OF THE EVENT");
+        materialDatePicker = materialDateBuilder.build();
+        materialDatePicker.addOnPositiveButtonClickListener(selection -> {
+            binding.tvDate.setText(materialDatePicker.getHeaderText());
+        });
+
+        binding.tvDate.setOnClickListener(v -> {
+            materialDatePicker.show(getParentFragmentManager(), "date_picker");
         });
     }
 

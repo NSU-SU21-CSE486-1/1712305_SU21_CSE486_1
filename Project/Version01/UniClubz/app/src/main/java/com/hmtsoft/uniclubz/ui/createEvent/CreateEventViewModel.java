@@ -2,6 +2,7 @@ package com.hmtsoft.uniclubz.ui.createEvent;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.ViewModel;
 
 import com.google.firebase.database.DataSnapshot;
@@ -27,15 +28,19 @@ public class CreateEventViewModel extends ViewModel {
     protected SingleLiveEvent<String> onEventCreated = new SingleLiveEvent<>();
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference reference;
+    private ClubEntity clubEntity;
 
     @Inject
-    public CreateEventViewModel(FirebaseDatabase firebaseDatabase) {
+    public CreateEventViewModel(FirebaseDatabase firebaseDatabase, SavedStateHandle savedStateHandle) {
         this.firebaseDatabase = firebaseDatabase;
+        this.clubEntity = savedStateHandle.get("model");
         this.reference = firebaseDatabase.getReference("events");
 
     }
 
     public void create(EventEntity entity) {
+        entity.setClubName(clubEntity.getName());
+        entity.setClubId(clubEntity.getId());
         reference.push().setValue(entity);
         reference.addValueEventListener(new ValueEventListener() {
             @Override

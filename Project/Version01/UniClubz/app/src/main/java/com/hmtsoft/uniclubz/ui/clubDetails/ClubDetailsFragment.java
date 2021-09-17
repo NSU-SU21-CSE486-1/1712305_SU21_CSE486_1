@@ -70,8 +70,18 @@ public class ClubDetailsFragment extends BaseFragment<FragmentClubDetailsBinding
 
         });
 
-        viewModel.liveList.observe(getViewLifecycleOwner(), clubEntities -> {
+        viewModel.memberLiveList.observe(getViewLifecycleOwner(), clubEntities -> {
             controller.setMemberList(clubEntities);
+            controller.requestModelBuild();
+        });
+
+        viewModel.eventLiveList.observe(getViewLifecycleOwner(), entities -> {
+            controller.setEventList(entities);
+            controller.requestModelBuild();
+        });
+
+        viewModel.bloodRequestLiveList.observe(getViewLifecycleOwner(), entities -> {
+            controller.setBloodRequestList(entities);
             controller.requestModelBuild();
         });
     }
@@ -79,8 +89,16 @@ public class ClubDetailsFragment extends BaseFragment<FragmentClubDetailsBinding
     @Override
     protected void clickListeners() {
         binding.toolbar.setNavigationOnClickListener(backPressClickListener);
-        binding.createEvent.setOnClickListener(v -> navController.navigate(R.id.createEventFragment));
-        binding.requestBlood.setOnClickListener(v -> navController.navigate(R.id.createBloodRequestFragment));
+        binding.createEvent.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("model", viewModel.clubDetails.getValue());
+            navController.navigate(R.id.createEventFragment, bundle);
+        });
+        binding.requestBlood.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("model", viewModel.clubDetails.getValue());
+            navController.navigate(R.id.createBloodRequestFragment, bundle);
+        });
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.hmtsoft.uniclubz.model;
 
 import java.io.Serializable;
+import java.util.Calendar;
 
 public class EventEntity implements Serializable {
 
@@ -9,19 +10,39 @@ public class EventEntity implements Serializable {
     private String description;
     private String university;
     private String createdBy;
+    private long createdAt;
+    private String date;
     private String clubId;
+    private String clubName;
 
     public EventEntity() {
 
     }
 
-    public EventEntity(String name, String coverPhoto, String description, String university, String createdBy, String clubId) {
+    public EventEntity(String name, String coverPhoto, String description, String university, String createdBy, String date) {
         this.name = name;
         this.coverPhoto = coverPhoto;
         this.description = description;
         this.university = university;
         this.createdBy = createdBy;
-        this.clubId = clubId;
+        this.date = date;
+        this.createdAt = Calendar.getInstance().getTimeInMillis();
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getClubName() {
+        return clubName;
+    }
+
+    public void setClubName(String clubName) {
+        this.clubName = clubName;
     }
 
     public String getName() {

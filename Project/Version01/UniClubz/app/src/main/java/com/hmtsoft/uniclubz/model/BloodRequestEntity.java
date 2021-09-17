@@ -1,6 +1,7 @@
 package com.hmtsoft.uniclubz.model;
 
 import java.io.Serializable;
+import java.util.Calendar;
 
 public class BloodRequestEntity implements Serializable {
 
@@ -11,13 +12,15 @@ public class BloodRequestEntity implements Serializable {
     private String address;
     private String note;
     private String createdBy;
+    private long createdAt;
     private String clubId;
+    private String clubName;
 
     public BloodRequestEntity() {
 
     }
 
-    public BloodRequestEntity(String bloodGroup, String bags, String date, String phoneNumber, String address, String note, String createdBy, String clubId) {
+    public BloodRequestEntity(String bloodGroup, String bags, String date, String phoneNumber, String address, String note, String createdBy) {
         this.bloodGroup = bloodGroup;
         this.bags = bags;
         this.date = date;
@@ -25,7 +28,16 @@ public class BloodRequestEntity implements Serializable {
         this.address = address;
         this.note = note;
         this.createdBy = createdBy;
-        this.clubId = clubId;
+        this.createdAt = Calendar.getInstance().getTimeInMillis();
+    }
+
+
+    public void setCreatedAt(long createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public long getCreatedAt() {
+        return createdAt;
     }
 
     public String getClubId() {
@@ -34,6 +46,14 @@ public class BloodRequestEntity implements Serializable {
 
     public void setClubId(String clubId) {
         this.clubId = clubId;
+    }
+
+    public void setClubName(String clubName) {
+        this.clubName = clubName;
+    }
+
+    public String getClubName() {
+        return clubName;
     }
 
     public void setCreatedBy(String createdBy) {
