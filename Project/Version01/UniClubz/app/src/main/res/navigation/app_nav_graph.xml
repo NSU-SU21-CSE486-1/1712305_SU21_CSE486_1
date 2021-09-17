@@ -38,5 +38,10 @@
         android:name="com.hmtsoft.uniclubz.ui.clubDetails.ClubDetailsFragment"
         android:label="ClubDetailsFragment" />
 
+    <dialog
+        android:id="@+id/userProfileBottomSheet"
+        android:name="com.hmtsoft.uniclubz.ui.userProfileModal.UserProfileBottomSheet"
+        android:label="UserProfileBottomSheet" />
+
 
 </navigation>

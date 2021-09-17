@@ -39,7 +39,7 @@ public class ClubDetailsController extends EpoxyController {
             new MemberModel_()
                     .id(memeberList.get(i).getUid())
                     .model(memeberList.get(i))
-                    .clickListener((model, parentView, clickedView, position) -> clickListener.onClick(model.model()))
+                    .clickListener((model, parentView, clickedView, position) -> clickListener.onMemberClick(model.model()))
                     .addTo(this);
         }
 
@@ -54,6 +54,6 @@ public class ClubDetailsController extends EpoxyController {
     }
 
     public interface ClickListener {
-        void onClick(UserDetailsEntity entity);
+        void onMemberClick(UserDetailsEntity entity);
     }
 }

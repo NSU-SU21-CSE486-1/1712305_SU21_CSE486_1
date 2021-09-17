@@ -2,12 +2,14 @@ package com.hmtsoft.uniclubz.ui.clubDetails;
 
 import android.graphics.Color;
 import android.os.Build;
+import android.os.Bundle;
 import android.view.View;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.database.FirebaseDatabase;
 import com.hmtsoft.uniclubz.R;
 import com.hmtsoft.uniclubz.databinding.FragmentClubDetailsBinding;
+import com.hmtsoft.uniclubz.model.UserDetailsEntity;
 import com.hmtsoft.uniclubz.ui.base.BaseFragment;
 import com.hmtsoft.uniclubz.ui.clubDetails.controller.ClubDetailsController;
 
@@ -16,7 +18,7 @@ import javax.inject.Inject;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class ClubDetailsFragment extends BaseFragment<FragmentClubDetailsBinding, ClubDetailsViewModel> {
+public class ClubDetailsFragment extends BaseFragment<FragmentClubDetailsBinding, ClubDetailsViewModel> implements ClubDetailsController.ClickListener {
 
     @Inject
     FirebaseDatabase firebaseDatabase;
@@ -68,7 +70,7 @@ public class ClubDetailsFragment extends BaseFragment<FragmentClubDetailsBinding
     protected void setupRecycler() {
         if (controller == null)
             controller = new ClubDetailsController();
-
+        controller.setClickListener(this);
         controller.setNavController(navController);
         binding.recyclerView.setAdapter(controller.getAdapter());
         controller.requestModelBuild();
@@ -77,7 +79,6 @@ public class ClubDetailsFragment extends BaseFragment<FragmentClubDetailsBinding
     private void transparentStatusBar() {
         if (getActivity() != null && getActivity().getWindow() != null) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                // getActivity().getWindow().getDecorView().setSystemUiVisibility(0);
                 getActivity().getWindow().setStatusBarColor(Color.TRANSPARENT);
             }
         }
@@ -98,5 +99,12 @@ public class ClubDetailsFragment extends BaseFragment<FragmentClubDetailsBinding
     public void onDestroyView() {
         super.onDestroyView();
         whiteStatusBar();
+    }
+
+    @Override
+    public void onMemberClick(UserDetailsEntity entity) {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("model", entity);
+        navController.navigate(R.id.userProfileBottomSheet, bundle);
     }
 }
