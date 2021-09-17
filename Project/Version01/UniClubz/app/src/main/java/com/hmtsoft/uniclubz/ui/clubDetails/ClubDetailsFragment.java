@@ -9,7 +9,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.hmtsoft.uniclubz.R;
 import com.hmtsoft.uniclubz.databinding.FragmentClubDetailsBinding;
 import com.hmtsoft.uniclubz.ui.base.BaseFragment;
-import com.hmtsoft.uniclubz.ui.clubs.controller.ClubsController;
+import com.hmtsoft.uniclubz.ui.clubDetails.controller.ClubDetailsController;
 
 import javax.inject.Inject;
 
@@ -20,7 +20,7 @@ public class ClubDetailsFragment extends BaseFragment<FragmentClubDetailsBinding
 
     @Inject
     FirebaseDatabase firebaseDatabase;
-    private ClubsController controller;
+    private ClubDetailsController controller;
 
     public ClubDetailsFragment() {
         super(ClubDetailsViewModel.class, R.layout.fragment_club_details);
@@ -29,6 +29,12 @@ public class ClubDetailsFragment extends BaseFragment<FragmentClubDetailsBinding
     @Override
     protected void initViews() {
         transparentStatusBar();
+        binding.appBar.addOnOffsetChangedListener((appBarLayout, verticalOffset) -> {
+            if (Math.abs(verticalOffset) - appBarLayout.getTotalScrollRange() == 0)
+                binding.title.setText(viewModel.clubDetails.getValue().getName());
+            else
+                binding.title.setText("");
+        });
     }
 
     @Override
@@ -46,10 +52,10 @@ public class ClubDetailsFragment extends BaseFragment<FragmentClubDetailsBinding
                     .into(binding.coverImage);
         });
 
-//        viewModel.liveList.observe(getViewLifecycleOwner(), clubEntities -> {
-//            controller.setList(clubEntities);
-//            controller.requestModelBuild();
-//        });
+        viewModel.liveList.observe(getViewLifecycleOwner(), clubEntities -> {
+            controller.setMemberList(clubEntities);
+            controller.requestModelBuild();
+        });
     }
 
     @Override
@@ -61,7 +67,7 @@ public class ClubDetailsFragment extends BaseFragment<FragmentClubDetailsBinding
     @Override
     protected void setupRecycler() {
         if (controller == null)
-            controller = new ClubsController();
+            controller = new ClubDetailsController();
 
         controller.setNavController(navController);
         binding.recyclerView.setAdapter(controller.getAdapter());

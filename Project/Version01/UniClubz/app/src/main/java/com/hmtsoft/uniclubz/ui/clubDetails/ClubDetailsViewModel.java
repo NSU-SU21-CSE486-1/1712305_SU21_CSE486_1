@@ -1,5 +1,7 @@
 package com.hmtsoft.uniclubz.ui.clubDetails;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.SavedStateHandle;
@@ -7,11 +9,9 @@ import androidx.lifecycle.ViewModel;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.hmtsoft.uniclubz.model.ClubEntity;
-import com.hmtsoft.uniclubz.model.UniversityEntity;
 import com.hmtsoft.uniclubz.model.UserDetailsEntity;
 
 import java.util.ArrayList;
@@ -36,6 +36,7 @@ public class ClubDetailsViewModel extends ViewModel {
         firebaseDatabase.getReference("profiles").orderByChild("groupId").equalTo(clubDetails.getValue().getId()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Log.e("profilez club", snapshot.toString());
                 List<UserDetailsEntity> list = new ArrayList<>();
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                     UserDetailsEntity item = postSnapshot.getValue(UserDetailsEntity.class);
