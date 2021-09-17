@@ -50,6 +50,10 @@
         android:id="@+id/createBloodRequestFragment"
         android:name="com.hmtsoft.uniclubz.ui.createBloodRequest.CreateBloodRequestFragment"
         android:label="CreateBloodRequestFragment" />
+    <fragment
+        android:id="@+id/bloodRequestsFragment"
+        android:name="com.hmtsoft.uniclubz.ui.bloodRequests.BloodRequestsFragment"
+        android:label="BloodRequestsFragment" />
 
 
 </navigation>

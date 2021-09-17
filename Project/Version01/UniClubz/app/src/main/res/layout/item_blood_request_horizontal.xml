@@ -68,7 +68,7 @@
                     android:layout_below="@+id/byUser"
                     android:layout_alignStart="@+id/title"
                     android:layout_marginLeft="-1dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="11dp"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/ic_marker_white"
                     app:tint="#444" />
@@ -99,7 +99,7 @@
                     android:layout_below="@+id/byUser"
                     android:layout_alignStart="@+id/title"
                     android:layout_marginLeft="-1dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="11dp"
                     android:layout_weight="1"
                     android:padding="1dp"
                     app:srcCompat="@drawable/ic_clock_dark"

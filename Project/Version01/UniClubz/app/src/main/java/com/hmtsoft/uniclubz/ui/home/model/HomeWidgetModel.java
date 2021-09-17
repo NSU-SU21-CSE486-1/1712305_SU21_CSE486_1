@@ -22,12 +22,22 @@ public abstract class HomeWidgetModel extends BaseDataBindingEpoxyModel {
     View.OnClickListener universitiesClickListener;
 
 
+    @EpoxyAttribute(EpoxyAttribute.Option.DoNotHash)
+    View.OnClickListener bloodRequestsClickListener;
+
+
+    @EpoxyAttribute(EpoxyAttribute.Option.DoNotHash)
+    View.OnClickListener eventsClickListener;
+
+
     @Override
     public void bind(@NonNull DataBindingHolder holder) {
         super.bind(holder);
         ItemHomeButtonsBinding binding = (ItemHomeButtonsBinding) holder.getDataBinding();
         binding.myProfile.setOnClickListener(profileClickListener);
         binding.exploreUniversities.setOnClickListener(universitiesClickListener);
+        binding.bloodRequests.setOnClickListener(bloodRequestsClickListener);
+        binding.myEvents.setOnClickListener(eventsClickListener);
     }
 
     @Override
