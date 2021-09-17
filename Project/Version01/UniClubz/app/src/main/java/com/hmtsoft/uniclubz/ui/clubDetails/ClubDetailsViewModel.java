@@ -33,10 +33,9 @@ public class ClubDetailsViewModel extends ViewModel {
         this.firebaseDatabase = firebaseDatabase;
         this.clubDetails.setValue(savedStateHandle.get("model"));
 
-        firebaseDatabase.getReference("profiles").orderByChild("groupId").equalTo(clubDetails.getValue().getId()).addValueEventListener(new ValueEventListener() {
+        firebaseDatabase.getReference("profiles").orderByChild("clubId").equalTo(clubDetails.getValue().getId()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Log.e("profilez club", snapshot.toString());
                 List<UserDetailsEntity> list = new ArrayList<>();
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                     UserDetailsEntity item = postSnapshot.getValue(UserDetailsEntity.class);

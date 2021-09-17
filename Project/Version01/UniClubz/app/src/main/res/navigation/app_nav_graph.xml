@@ -42,6 +42,14 @@
         android:id="@+id/userProfileBottomSheet"
         android:name="com.hmtsoft.uniclubz.ui.userProfileModal.UserProfileBottomSheet"
         android:label="UserProfileBottomSheet" />
+    <fragment
+        android:id="@+id/createEventFragment"
+        android:name="com.hmtsoft.uniclubz.ui.createEvent.CreateEventFragment"
+        android:label="CreateEventFragment" />
+    <fragment
+        android:id="@+id/createBloodRequestFragment"
+        android:name="com.hmtsoft.uniclubz.ui.createBloodRequest.CreateBloodRequestFragment"
+        android:label="CreateBloodRequestFragment" />
 
 
 </navigation>

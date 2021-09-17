@@ -32,7 +32,7 @@ public class UserDetailsEntity implements Serializable {
     private List<PhoneNumberModel> phoneNumbers;
 
     private String uid;
-    private String groupId;
+    private String clubId;
 
     public void setPersonalInformation(String fullName, String dateOfBirth, String bloodGroup, String nid) {
         this.fullName = fullName;
@@ -41,12 +41,12 @@ public class UserDetailsEntity implements Serializable {
         this.nid = nid;
     }
 
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
+    public void setClubId(String clubId) {
+        this.clubId = clubId;
     }
 
-    public String getGroupId() {
-        return groupId;
+    public String getClubId() {
+        return clubId;
     }
 
     public String getUid() {

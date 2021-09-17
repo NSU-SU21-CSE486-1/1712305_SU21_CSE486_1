@@ -8,6 +8,7 @@ import android.view.View;
 import com.bumptech.glide.Glide;
 import com.google.firebase.database.FirebaseDatabase;
 import com.hmtsoft.uniclubz.R;
+import com.hmtsoft.uniclubz.data.pref.PreferenceRepository;
 import com.hmtsoft.uniclubz.databinding.FragmentClubDetailsBinding;
 import com.hmtsoft.uniclubz.model.UserDetailsEntity;
 import com.hmtsoft.uniclubz.ui.base.BaseFragment;
@@ -46,12 +47,27 @@ public class ClubDetailsFragment extends BaseFragment<FragmentClubDetailsBinding
             binding.tvName.setText(entity.getName());
             binding.tvUniversity.setText(entity.getUniversity());
             binding.tvDescription.setText(entity.getDescription());
+
             Glide.with(this)
                     .load(entity.getLogo())
                     .into(binding.logoImage);
             Glide.with(this)
                     .load(entity.getCoverPhoto())
                     .into(binding.coverImage);
+
+
+            if (entity.getId().equals(PreferenceRepository.getUserData().getClubId()))
+                binding.userActionHolder.setVisibility(View.GONE);
+            else
+                binding.userActionHolder.setVisibility(View.VISIBLE);
+
+            if (entity.getAdminUid().equals(PreferenceRepository.getUid())) {
+                binding.adminActionsHolder.setVisibility(View.VISIBLE);
+                binding.userActionHolder.setVisibility(View.GONE);
+            } else
+                binding.adminActionsHolder.setVisibility(View.GONE);
+
+
         });
 
         viewModel.liveList.observe(getViewLifecycleOwner(), clubEntities -> {
@@ -63,7 +79,8 @@ public class ClubDetailsFragment extends BaseFragment<FragmentClubDetailsBinding
     @Override
     protected void clickListeners() {
         binding.toolbar.setNavigationOnClickListener(backPressClickListener);
-
+        binding.createEvent.setOnClickListener(v -> navController.navigate(R.id.createEventFragment));
+        binding.requestBlood.setOnClickListener(v -> navController.navigate(R.id.createBloodRequestFragment));
     }
 
     @Override
