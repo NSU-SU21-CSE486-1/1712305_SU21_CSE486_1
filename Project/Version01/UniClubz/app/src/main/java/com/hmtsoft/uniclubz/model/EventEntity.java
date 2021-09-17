@@ -85,6 +85,14 @@ public class EventEntity implements Serializable {
         this.createdBy = createdBy;
     }
 
+    public void setCreatedAt(long createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public long getCreatedAt() {
+        return createdAt;
+    }
+
     public String getClubId() {
         return clubId;
     }

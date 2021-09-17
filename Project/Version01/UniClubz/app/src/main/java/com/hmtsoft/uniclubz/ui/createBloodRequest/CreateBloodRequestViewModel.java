@@ -15,6 +15,7 @@ import com.hmtsoft.uniclubz.model.ClubEntity;
 import com.hmtsoft.uniclubz.utils.SingleLiveEvent;
 import com.hmtsoft.uniclubz.utils.ToastUtils;
 
+import java.util.Calendar;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -41,7 +42,7 @@ public class CreateBloodRequestViewModel extends ViewModel {
     public void create(BloodRequestEntity entity) {
         entity.setClubName(clubEntity.getName());
         entity.setClubId(clubEntity.getId());
-
+        entity.setCreatedAt(Calendar.getInstance().getTimeInMillis());
         reference.push().setValue(entity);
         reference.addValueEventListener(new ValueEventListener() {
             @Override

@@ -89,11 +89,15 @@ public class ClubDetailsFragment extends BaseFragment<FragmentClubDetailsBinding
     @Override
     protected void clickListeners() {
         binding.toolbar.setNavigationOnClickListener(backPressClickListener);
+        binding.back.setOnClickListener(backPressClickListener);
+
+
         binding.createEvent.setOnClickListener(v -> {
             Bundle bundle = new Bundle();
             bundle.putSerializable("model", viewModel.clubDetails.getValue());
             navController.navigate(R.id.createEventFragment, bundle);
         });
+
         binding.requestBlood.setOnClickListener(v -> {
             Bundle bundle = new Bundle();
             bundle.putSerializable("model", viewModel.clubDetails.getValue());

@@ -15,6 +15,7 @@ import com.hmtsoft.uniclubz.model.EventEntity;
 import com.hmtsoft.uniclubz.utils.SingleLiveEvent;
 import com.hmtsoft.uniclubz.utils.ToastUtils;
 
+import java.util.Calendar;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -41,6 +42,7 @@ public class CreateEventViewModel extends ViewModel {
     public void create(EventEntity entity) {
         entity.setClubName(clubEntity.getName());
         entity.setClubId(clubEntity.getId());
+        entity.setCreatedAt(Calendar.getInstance().getTimeInMillis());
         reference.push().setValue(entity);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
