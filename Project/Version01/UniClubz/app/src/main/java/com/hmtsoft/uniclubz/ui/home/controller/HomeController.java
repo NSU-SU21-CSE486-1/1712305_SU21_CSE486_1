@@ -40,8 +40,8 @@ public class HomeController extends EpoxyController {
                 .universitiesClickListener((model, parentView, clickedView, position) -> navController.navigate(R.id.universitiesFragment))
                 .bloodRequestsClickListener((model, parentView, clickedView, position) -> navController.navigate(R.id.bloodRequestsFragment))
                 .eventsClickListener((model, parentView, clickedView, position) -> navController.navigate(R.id.universitiesFragment))
+                .exploreClubsClickListener((model, parentView, clickedView, position) -> navController.navigate(R.id.clubsFragment))
                 .addTo(this);
-
 
         new SectionTitleModel_()
                 .id("events_section_title")

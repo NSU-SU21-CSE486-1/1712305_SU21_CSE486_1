@@ -9,6 +9,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.hmtsoft.uniclubz.model.ClubEntity;
 import com.hmtsoft.uniclubz.model.UniversityEntity;
@@ -33,7 +34,13 @@ public class ClubsViewModel extends ViewModel {
         this.firebaseDatabase = firebaseDatabase;
         this.universityEntity = savedStateHandle.get("model");
 
-        firebaseDatabase.getReference("clubs").orderByChild("university").equalTo(universityEntity.getName()).addValueEventListener(new ValueEventListener() {
+        Query query;
+        if (universityEntity != null)
+            query = firebaseDatabase.getReference("clubs").orderByChild("university").equalTo(universityEntity.getName());
+        else
+            query = firebaseDatabase.getReference("clubs");
+
+        query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 List<ClubEntity> list = new ArrayList<>();

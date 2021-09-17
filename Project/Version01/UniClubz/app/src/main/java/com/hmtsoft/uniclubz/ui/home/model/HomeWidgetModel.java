@@ -21,13 +21,18 @@ public abstract class HomeWidgetModel extends BaseDataBindingEpoxyModel {
     @EpoxyAttribute(EpoxyAttribute.Option.DoNotHash)
     View.OnClickListener universitiesClickListener;
 
-
     @EpoxyAttribute(EpoxyAttribute.Option.DoNotHash)
     View.OnClickListener bloodRequestsClickListener;
 
 
     @EpoxyAttribute(EpoxyAttribute.Option.DoNotHash)
     View.OnClickListener eventsClickListener;
+
+    @EpoxyAttribute(EpoxyAttribute.Option.DoNotHash)
+    View.OnClickListener exploreClubsClickListener;
+
+    @EpoxyAttribute(EpoxyAttribute.Option.DoNotHash)
+    View.OnClickListener myClubClickListener;
 
 
     @Override
@@ -38,6 +43,8 @@ public abstract class HomeWidgetModel extends BaseDataBindingEpoxyModel {
         binding.exploreUniversities.setOnClickListener(universitiesClickListener);
         binding.bloodRequests.setOnClickListener(bloodRequestsClickListener);
         binding.myEvents.setOnClickListener(eventsClickListener);
+        binding.exploreClubs.setOnClickListener(exploreClubsClickListener);
+        binding.myClub.setOnClickListener(myClubClickListener);
     }
 
     @Override
