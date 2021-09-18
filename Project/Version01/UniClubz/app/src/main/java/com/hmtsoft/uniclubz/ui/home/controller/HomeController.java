@@ -13,6 +13,7 @@ import com.hmtsoft.uniclubz.ui.home.model.BloodRequestHorizontalModel_;
 import com.hmtsoft.uniclubz.ui.home.model.EventHorizontalModel_;
 import com.hmtsoft.uniclubz.ui.home.model.HomeHeaderModel_;
 import com.hmtsoft.uniclubz.ui.home.model.HomeWidgetModel_;
+import com.hmtsoft.uniclubz.ui.home.model.LoadingBarModel_;
 import com.hmtsoft.uniclubz.ui.home.model.SectionTitleModel_;
 import com.hmtsoft.uniclubz.utils.ToastUtils;
 
@@ -51,6 +52,10 @@ public class HomeController extends EpoxyController {
                 .eventsClickListener((model, parentView, clickedView, position) -> navController.navigate(R.id.exploreEventsFragment))
                 .exploreClubsClickListener((model, parentView, clickedView, position) -> navController.navigate(R.id.clubsFragment))
                 .addTo(this);
+
+        new LoadingBarModel_()
+                .id("loadingbar")
+                .addIf(eventList.size() == 0, this);
 
         new SectionTitleModel_()
                 .id("events_section_title")

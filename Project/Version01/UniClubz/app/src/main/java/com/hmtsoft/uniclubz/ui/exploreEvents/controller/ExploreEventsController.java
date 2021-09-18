@@ -5,6 +5,7 @@ import androidx.navigation.NavController;
 import com.airbnb.epoxy.EpoxyController;
 import com.hmtsoft.uniclubz.model.EventEntity;
 import com.hmtsoft.uniclubz.ui.exploreEvents.model.EventVerticalModel_;
+import com.hmtsoft.uniclubz.ui.home.model.LoadingBarFullModel_;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +28,12 @@ public class ExploreEventsController extends EpoxyController {
                     .model(list.get(i))
                     .addTo(this);
         }
+
+
+        new LoadingBarFullModel_()
+                .id("loadingbar")
+                .addIf(list.size() == 0, this);
+
     }
 
     public void setList(List<EventEntity> list) {

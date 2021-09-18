@@ -9,6 +9,7 @@ import com.airbnb.epoxy.OnModelClickListener;
 import com.hmtsoft.uniclubz.model.ClubEntity;
 import com.hmtsoft.uniclubz.ui.base.BaseDataBindingEpoxyModel;
 import com.hmtsoft.uniclubz.ui.clubs.model.ClubModel_;
+import com.hmtsoft.uniclubz.ui.home.model.LoadingBarFullModel_;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +35,9 @@ public class ClubsController extends EpoxyController {
                     .addTo(this);
         }
 
+        new LoadingBarFullModel_()
+                .id("loadingbar")
+                .addIf(list.size() == 0, this);
     }
 
     public void setList(List<ClubEntity> list) {

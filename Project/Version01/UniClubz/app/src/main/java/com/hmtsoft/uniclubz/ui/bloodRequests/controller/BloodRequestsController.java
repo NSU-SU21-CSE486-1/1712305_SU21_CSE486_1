@@ -5,6 +5,8 @@ import androidx.navigation.NavController;
 import com.airbnb.epoxy.EpoxyController;
 import com.hmtsoft.uniclubz.model.BloodRequestEntity;
 import com.hmtsoft.uniclubz.ui.home.model.BloodRequestHorizontalModel_;
+import com.hmtsoft.uniclubz.ui.home.model.LoadingBarFullModel_;
+import com.hmtsoft.uniclubz.ui.home.model.LoadingBarModel_;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +29,12 @@ public class BloodRequestsController extends EpoxyController {
                     .model(list.get(i))
                     .addTo(this);
         }
+
+
+        new LoadingBarFullModel_()
+                .id("loadingbar")
+                .addIf(list.size() == 0, this);
+
     }
 
     public void setList(List<BloodRequestEntity> list) {

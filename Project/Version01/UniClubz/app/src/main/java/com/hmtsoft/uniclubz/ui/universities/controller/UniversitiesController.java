@@ -8,6 +8,7 @@ import com.airbnb.epoxy.EpoxyController;
 import com.airbnb.epoxy.OnModelClickListener;
 import com.hmtsoft.uniclubz.model.UniversityEntity;
 import com.hmtsoft.uniclubz.ui.base.BaseDataBindingEpoxyModel;
+import com.hmtsoft.uniclubz.ui.home.model.LoadingBarFullModel_;
 import com.hmtsoft.uniclubz.ui.universities.model.UniversityModel_;
 
 import java.util.ArrayList;
@@ -33,6 +34,10 @@ public class UniversitiesController extends EpoxyController {
                     .clickListener((model, parentView, clickedView, position) -> clickListener.onClick(model.model()))
                     .addTo(this);
         }
+
+        new LoadingBarFullModel_()
+                .id("loadingbar")
+                .addIf(list.size() == 0, this);
 
     }
 
